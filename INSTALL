@@ -1,0 +1,1 @@
+TBD.  Probably cmake or autoconf.  Should work on recent versions of GCC and clang on unix.  I can't guarantee that it'll work on other platforms or compilers, but if I can do so easily, I will.
