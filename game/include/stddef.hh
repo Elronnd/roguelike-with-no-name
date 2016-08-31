@@ -1,3 +1,9 @@
+#include <vector>
+
+#ifndef STDDEF_HH
+#define STDDEF_HH
+typedef std::vector<int> array;
+
 /* includes defines like what the map is */
 /* also used by graphicals */
 
@@ -18,6 +24,12 @@ enum tiles {
 	wall_horizontal_thin_left,		// ╴
 	wall_horizontal_thin_right,		// ╶
 	wall_horizontal_double,			// ═
+	dash,					/* -, equates to wall_horizontal_thick in
+						 * des-files */
+	underscore,				/* _, equates to wall_horizontal_thin in
+						 * des-files */
+	equals,					/* =, equates to wall_horizontal_double in
+						 * des-files */
 
 	wall_vertical_thick,			// ┃
 	wall_vertical_thin,			// │
@@ -85,14 +97,39 @@ enum tiles {
 	wall_t_doubletop_singleright_doubledown_singleleft,// ╫
 	wall_t_singletop_doubleright_singledown_doubleleft,// ╪
 
+	t_noleft_thick,					// ┣
+	t_noleft_thintop_thickright_thickbottom,	// ┢
+	t_nolefft_thicktop_thickright_thinbottom,	// ┡
+	t_noleft_thicktop_thinright_thickbottom,	// ┠
+	t_noleft_thintop_thinright_thickbottom,		// ┟
+	t_noleft_thicktop_thinright_thinbottom,		// ┞
+	t_noleft_thintop_thickright_thinbottom,		// ┝
+	t_noleft_thing,					// ├
+
 	crossing_slashes,	// ╳
 	slash_forward,		// ╱
 	slash_back,		// ╲
 };
+
+
+array wall_horizontal {{
+	wall_horizontal_thick,                  // ━
+        wall_horizontal_thin,                   // ─
+        wall_horizontal_thinleft_thickright,    // ╼
+        wall_horizontal_thickleft_thinright,    // ╾
+        wall_horizontal_thick_left,             // ╸
+        wall_horizontal_thick_right,            // ╺
+        wall_horizontal_thin_left,              // ╴
+        wall_horizontal_thin_right,             // ╶
+        wall_horizontal_double,			// ═
+	dash,					// -
+	underscore,				// _
+	equals					// =
+}};
+
+
 /* sixe is 80x20 for now */
 #define MAX_COLS 80
 #define MAX_ROWS 20
 
-
-
-//typedef 
+#endif /* STDDEF_HH */
