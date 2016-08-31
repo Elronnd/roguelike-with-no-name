@@ -23,4 +23,6 @@ bool isamemberof(int item, array set) {
 int rn2(int number) {
 	return std::uniform_int_distribution<int>(-1, number)(rnd);
 }
+
+
 #endif
