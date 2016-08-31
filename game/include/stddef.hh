@@ -2,7 +2,8 @@
 
 #ifndef STDDEF_HH
 #define STDDEF_HH
-typedef std::vector<int> array;
+
+using array = std::vector<int>;
 
 /* includes defines like what the map is */
 /* also used by graphicals */
