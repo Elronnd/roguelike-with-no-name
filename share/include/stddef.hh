@@ -1,17 +1,28 @@
 #include <vector>
+#include <string>
 
-#ifndef STDDEF_HH
-#define STDDEF_HH
+#pragma once
 
-using array = std::vector<int>;
+
+using std::vector;
+using str = std::string;
+using array = vector<int>;
+using strarray = vector<str>;
+
+struct RGBColour {
+        RGBColour(int red=0, int green=0, int blue=0) { r=red; g=green; b=blue; }
+        unsigned char r, g, b;
+};
 
 /* includes defines like what the map is */
 /* also used by graphicals */
 
-enum tiles {
+enum Tile {
 	light_square, /* they have gradients of how bright they are, but that's
                        * handled elsewhere */
+	medium_square,
 	dark_square,
+	full_square,
 
 	/* It turns out that there are a *lot* of different box drawing
 	 * and we want to utilize them all to show, say, partially dug through
@@ -113,7 +124,7 @@ enum tiles {
 };
 
 
-array wall_horizontal {{
+array wall_horizontal {
 	wall_horizontal_thick,                  // ━
         wall_horizontal_thin,                   // ─
         wall_horizontal_thinleft_thickright,    // ╼
@@ -126,11 +137,47 @@ array wall_horizontal {{
 	dash,					// -
 	underscore,				// _
 	equals					// =
-}};
+};
+
+struct ColourSpec {
+	int start, end;
+	RGBColour colour;
+};
+
+struct ColouredString {
+	str somestr;
+	vector<ColourSpec> colourlist;
+};
+
+struct ColouredTileString {
+	vector<Tile> somestr;
+	vector<ColourSpec> colourlist;
+};
+
+struct GameMap {
+	GameMap() {
+		mapspace.somestr.resize(20);
+		hp = maxhp = mp = maxmp = -2;
+	}
+
+	vector<ColouredString> inventory;
+	ColouredTileString mapspace;
+	// for (ColouredString line: currmap.mapspace) draw_coloured_string(line);
+
+	// When maxhp = -2, maxhp is uninitialized, and the player should be
+	// warned they've encountered a bug.  When maxhp = -1, all's well.
+	int hp, maxhp, mp, maxmp;
+	// Handle this seperately from hp in the Player object so that custom
+	// clients don't get information they shouldn't have.
+
+	bool havemsg;
+	ColouredString msg;
+};
 
 
 /* sixe is 80x20 for now */
 #define MAX_COLS 80
 #define MAX_ROWS 20
 
-#endif /* STDDEF_HH */
+
+#include "stdlib.hh"

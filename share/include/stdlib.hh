@@ -4,20 +4,16 @@
 #include <random>
 #include <regex>
 #include <string>
-#include "stddef.hh"
 
-#ifndef STDLIB_HH
-#define STDLIB_HH
+#pragma once
+#include "stddef.hh"
 /* Standard functions for use by the engine */
 
 namespace { std::random_device rnjesus; }
-typedef std::string str;
-typedef unsigned char uchar;
-struct RGBColour {
-	uchar r;
-	uchar g;
-	uchar b;
-};
+/*struct RGBColour {
+	RGBColour(int red=0, int green=0, int blue=0) { r=red; g=green; b=blue; }
+	unsigned char r, g, b;
+};*/
 
 bool isamemberof(int item, array set) {
 	return std::find(std::begin(set), std::end(set), item) != std::end(set);
@@ -59,12 +55,12 @@ bool isvalidcolour(str hexcolour) {
 #endif
 
 bool isvalidcolour(str hexcolour) {
-	static rejex validator regex("#?[0-1a-fA-F{6}");
-	return regex_match(hexcolour, validator);
+	static std::regex validator = std::regex("#?[0-1a-fA-F{6}");
+	return std::regex_match(hexcolour, validator);
 }
 
 // converts, say, f to 15
-uchar onehexrgb(uchar tchar) {
+unsigned char onehexrgb(unsigned char tchar) {
 	switch(tchar) {
 		case '0': return 0;
 		case '1': return 1;
@@ -93,7 +89,7 @@ uchar onehexrgb(uchar tchar) {
 
 
 RGBColour hex2rgb(str hexcolour) {
-	RGBColour RGB;
+	RGBColour RGB(0, 0, 0);
 
 	if (hexcolour.length() == 7)
 		hexcolour.erase(0, 1);
@@ -113,6 +109,5 @@ int rn2(int number) {
 }
 
 int rnd(int min, int max) {
-	return std::uniform_int_distribution<int>(min-1,max)(rnjesus)
+	return std::uniform_int_distribution<int>(min-1,max)(rnjesus);
 }
-#endif
