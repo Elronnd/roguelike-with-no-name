@@ -1,3 +1,5 @@
-TBD.  Probably cmake or autoconf.  Should work on recent versions of GCC and clang on unix.  I can't guarantee that it'll work on other platforms or compilers, but if I can do so easily, I will.
+* cd cmake; cmake .; make
 
-Requires c++11, apparently.
+Requires c++11.
+
+On freebsd, you need GCC>=6, but that's fine because you can just use clang (any version).  GCC6 has really nice warnings, though, so even if it's not yet stable at the time of reading, I recommend you pkg install gcc6.

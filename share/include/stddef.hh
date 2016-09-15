@@ -139,6 +139,89 @@ array wall_horizontal {
 	equals					// =
 };
 
+array wall_vertical {
+	wall_vertical_thick,			// ┃
+	wall_vertical_thin,			// │
+	wall_vertical_thintop_thickbottom,	// ╽
+	wall_vertical_thicktop_thinbottom,	// ╿
+	wall_vertical_thick_top,		// ╹
+	wall_vertical_thick_bottom,		// ╻
+	wall_vertical_thin_top,			// ╵
+	wall_vertical_thin_bottom,		// ╷
+	wall_vertical_double,			// ║
+};
+
+array wall_lowerright {
+	wall_lowerright_thick,			// ┛
+	wall_lowerright_thinbottom_thickside,	// ┚
+	wall_lowerright_thickbottom_thinside,	// ┙
+	wall_lowerright_thin,			// ┘
+	wall_lowerright_curved,			// ╯
+	wall_lowerright_double,			// ╝
+	wall_lowerright_doublebottom_singleside,// ╛
+	wall_lowerright_singlebottom_doubleside,// ╜
+};
+
+array wall_lowerleft {
+	wall_lowerleft_thick,			// ┗
+	wall_lowerleft_thinbottom_thickside,	// ┖
+	wall_lowerleft_thickbottom_thinside,	// ┕
+	wall_lowerleft_thin,			// └
+	wall_lowerleft_curved,			// ╰
+	wall_lowerleft_double,			// ╚
+	wall_lowerleft_doublebottom_singleside,	// ╘
+	wall_lowerleft_singlebottom_doubleside,	// ╙
+};
+
+array wall_uperright {
+	wall_upperright_thick,			// ┓
+	wall_upperright_thicktop_thinside,	// ┑
+	wall_upperright_thintop_thickside,	// ┒
+	wall_upperright_thin,			// ┐
+	wall_upperright_curved,			// ╮
+	wall_upperright_double,			// ╗
+	wall_uperright_doubletop_singleside,	// ╕
+	wall_uperright_singletop_doubleside,	// ╖
+};
+
+array wall_upperleft {
+	wall_upperleft_thick,			// ┏
+	wall_upperleft_thicktop_thinside,	// ┍
+	wall_upperleft_thintop_thickside,	// ┎
+	wall_upperleft_thin,			// ┌
+	wall_upperleft_curved,			// ╭
+	wall_upperleft_double,			// ╔
+	wall_upperleft_doubletop_singleside,	// ╒
+	wall_upperleft_singletop_doubleside	// ╓
+};
+
+array wall_t {
+	wall_t_thick,					// ╋
+	wall_t_thintop_thinright_thinbottom_thickleft,	// ┽
+	wall_t_thintop_thickright_thinbottom_thinleft,	// ┾
+	wall_t_thintop_thickright_thinbottom_thickleft,	// ┿
+	wall_t_thicktop_thinright_thinbottom_thinleft,	// ╀
+	wall_t_thintop_thinright_thickbottom_thinleft,	// ╁
+	wall_t_thicktop_thinright_thickbottom_thinleft,	// ╂
+	wall_t_thicktop_thinright_thinbottom_thickleft,	// ╃
+	wall_t_thicktop_thickright_thinbottom_thinleft,	// ╄
+	wall_t_thintop_thinright_thickbottom_thickleft,	// ╅
+	wall_t_thintop_thickright_thickbottom_thinleft,	// ╆
+	wall_t_thicktop_thickright_thinbottom_thickleft,// ╇
+	wall_t_thintop_thickright_thickbottom_thickleft,// ╈
+	wall_t_thicktop_thinright_thickbottom_thickleft,// ╉
+	wall_t_thicktop_thickright_thickbottom_thinleft,// ╊
+	wall_t_thin,					// ┼
+	wall_t_double,					// ╬
+	wall_t_doubletop_singleright_doubledown_singleleft,// ╫
+	wall_t_singletop_doubleright_singledown_doubleleft// ╪
+};
+
+
+
+
+
+
 struct ColourSpec {
 	int start, end;
 	RGBColour colour;
