@@ -16,7 +16,7 @@ void DebugDisplayer::refresh(GameMap& map) {
 }
 
 void DebugDisplayer::animation_sparkle(short x, short y) {
-	printf("Sparkle animation at (%d,%d)\n");
+	printf("Sparkle animation at (%d,%d)\n", x, y);
 }
 
 char DebugDisplayer::readchar() {
