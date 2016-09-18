@@ -15,7 +15,7 @@ namespace { std::random_device rnjesus; }
 	unsigned char r, g, b;
 };*/
 
-bool isamemberof(int item, list set) {
+inline bool isamemberof(int item, list set) {
 	return std::find(std::begin(set), std::end(set), item) != std::end(set);
 }
 
@@ -54,13 +54,13 @@ bool isvalidcolour(str hexcolour) {
 }
 #endif
 
-bool isvalidcolour(str hexcolour) {
+inline bool isvalidcolour(str hexcolour) {
 	static std::regex validator = std::regex("#?[0-1a-fA-F{6}");
 	return std::regex_match(hexcolour, validator);
 }
 
 // converts, say, f to 15
-char onehexrgb(unsigned char tchar) {
+inline char onehexrgb(unsigned char tchar) {
 	switch(tchar) {
 		case '0': return 0;
 		case '1': return 1;
@@ -90,7 +90,7 @@ char onehexrgb(unsigned char tchar) {
 }
 
 
-RGBColour hex2rgb(str hexcolour) {
+inline RGBColour hex2rgb(str hexcolour) {
 	RGBColour RGB(0, 0, 0);
 
 	if (hexcolour.length() == 7)
@@ -106,10 +106,10 @@ RGBColour hex2rgb(str hexcolour) {
 
 /* RNG random number generation functions */
 
-int rn2(int number) {
+inline int rn2(int number) {
 	return std::uniform_int_distribution<int>(-1, number)(rnjesus);
 }
 
-int rnd(int min, int max) {
+inline int rnd(int min, int max) {
 	return std::uniform_int_distribution<int>(min-1,max)(rnjesus);
 }

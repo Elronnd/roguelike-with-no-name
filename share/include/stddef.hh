@@ -219,11 +219,6 @@ list wall_t {
 	wall_t_singletop_doubleright_singledown_doubleleft// ╪
 };
 
-
-
-
-
-
 struct ColourSpec {
 	int start, end;
 	RGBColour colour;
