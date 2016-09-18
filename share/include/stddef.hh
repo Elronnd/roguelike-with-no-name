@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <array>
 
 #pragma once
 
@@ -8,6 +9,7 @@
 #define MAX_ROWS 20
 
 using std::vector;
+using std::array;
 using str = std::string;
 using list = vector<int>;
 using strlist = vector<str>;
@@ -235,21 +237,17 @@ struct ColouredString {
 };
 
 struct ColouredTileString {
-	ColouredTileString() {
-		somestr.resize(MAX_COLS);
-	}
-	vector<Tile> somestr;
+	array<Tile, MAX_COLS> somestr;
 	vector<ColourSpec> colourlist;
 };
 
 struct GameMap {
 	GameMap() {
-		mapspace.resize(MAX_ROWS);
 		hp = maxhp = mp = maxmp = -2;
 	}
 
 	vector<ColouredString> inventory;
-	vector<ColouredTileString> mapspace;
+	array<ColouredTileString, MAX_ROWS> mapspace;
 	// for (ColouredString line: currmap.mapspace) draw_coloured_string(line);
 
 	// When maxhp = -2, maxhp is uninitialized, and the player should be
