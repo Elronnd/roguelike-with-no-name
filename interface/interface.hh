@@ -26,7 +26,7 @@ class JSONDisplayer: public BaseDisplayer {
 
 class DebugDisplayer: public BaseDisplayer {
 	public:
-	void refresh(GameMap) override;
+	void refresh(GameMap&) override;
 	void animation_sparkle(short, short) override;
 /*	void animation_line(short, short, short, short,RGBColour) override;
 	void animation_gradientline(short, short, short, short, RGBColour, RGBColour) override;*/

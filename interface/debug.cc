@@ -8,7 +8,7 @@
 using std::cout;
 using std::endl;
 
-void DebugDisplayer::refresh(GameMap map) {
+void DebugDisplayer::refresh(GameMap& map) {
 	for (ColouredTileString line: map.mapspace) {
 		for (Tile tile: line.somestr)
 			cout << tileset()[tile];
