@@ -1,4 +1,4 @@
-* cd cmake; cmake .; make
+* cd build; cmake .; make
 
 Requires c++11.
 
