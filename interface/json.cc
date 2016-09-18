@@ -55,7 +55,7 @@ str JSONDisplayer::rgbstr2json(ColouredString rgbstring) {
 	}
 	return currstring;
 }
-void JSONDisplayer::refresh(GameMap map) {
+void JSONDisplayer::refresh(GameMap& map) {
 	printf("{ \"is_gamemap\": true, \"gamemap\": [");
 	for (ColouredTileString line: map.mapspace) {
 		printf("\"");
