@@ -1,5 +1,6 @@
 language: c++
-sudo: false
+sudo: required
+dist: yakkety
 script: "cd build; cmake .; make"
 compiler:
   - gcc
