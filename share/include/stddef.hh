@@ -3,6 +3,9 @@
 
 #pragma once
 
+/* sixe is 80x20 for now */
+#define MAX_COLS 80
+#define MAX_ROWS 20
 
 using std::vector;
 using str = std::string;
@@ -126,6 +129,7 @@ enum Tile {
 };
 
 
+#if 0
 list wall_horizontal {
 	wall_horizontal_thick,                  // ━
         wall_horizontal_thin,                   // ─
@@ -218,6 +222,7 @@ list wall_t {
 	wall_t_doubletop_singleright_doubledown_singleleft,// ╫
 	wall_t_singletop_doubleright_singledown_doubleleft// ╪
 };
+#endif
 
 struct ColourSpec {
 	int start, end;
@@ -230,13 +235,16 @@ struct ColouredString {
 };
 
 struct ColouredTileString {
+	ColouredTileString() {
+		somestr.resize(MAX_COLS);
+	}
 	vector<Tile> somestr;
 	vector<ColourSpec> colourlist;
 };
 
 struct GameMap {
 	GameMap() {
-		mapspace.resize(20);
+		mapspace.resize(MAX_ROWS);
 		hp = maxhp = mp = maxmp = -2;
 	}
 
@@ -255,9 +263,6 @@ struct GameMap {
 };
 
 
-/* sixe is 80x20 for now */
-#define MAX_COLS 80
-#define MAX_ROWS 20
 
 
 #include "stdlib.hh"

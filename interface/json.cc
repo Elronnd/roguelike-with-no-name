@@ -55,7 +55,7 @@ str JSONDisplayer::rgbstr2json(ColouredString rgbstring) {
 	}
 	return currstring;
 }
-void JSONDisplayer::refresh(GameMap& map) {
+void JSONDisplayer::refresh(GameMap map) {
 	printf("{ \"is_gamemap\": true, \"gamemap\": [");
 	for (ColouredTileString line: map.mapspace) {
 		printf("\"");
@@ -68,8 +68,12 @@ void JSONDisplayer::refresh(GameMap& map) {
 		printf("\"%s\", %s, ", line.somestr.c_str(), rgbstr2json(line).c_str());
 	}
 
-	print("], \"havemsg\": ");
-	printf("%s", map.havemsg ? "true, \"msg\": \"" + map.msg.somestr.c_str() + "\", \"msgcolors\": " + rgbstr2json(map.msg) : "false");
+	printf("], \"havemsg\": ");
+	if (map.havemsg) {
+		printf("true, \"msg\": \"%s\", \"msgcolours\": %s", map.msg.somestr.c_str(), rgbstr2json(map.msg).c_str());
+	} else {
+		printf("false");
+	}
 
 	printf(", \"hp\": %d", map.hp);
 	printf(", \"maxhp\": %d", map.maxhp);
@@ -85,8 +89,6 @@ void JSONDisplayer::animation_sparkle(short x, short y) {
 	currstring += "}";
 }
 
-char JSONDisplayer::getchar() {
-	char foo;
-	std::cin >> foo;
-	return foo;
+char JSONDisplayer::readchar() {
+	return getchar();
 }

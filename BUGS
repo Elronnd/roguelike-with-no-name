@@ -1,0 +1,3 @@
+Known bugs:
+
+* The JSON displayer prints an extra comma after the last line.

@@ -8,7 +8,7 @@
 using std::cout;
 using std::endl;
 
-void DebugDisplayer::refresh(GameMap& map) {
+void DebugDisplayer::refresh(GameMap map) {
 	for (ColouredTileString line: map.mapspace) {
 		for (Tile tile: line.somestr)
 			cout << tileset()[tile];
@@ -21,8 +21,6 @@ void DebugDisplayer::animation_sparkle(short x, short y) {
 	cout << "Sparkle animation at (" << x << "," << y << ")" << endl;
 }
 
-char JSONDisplayer::getchar() {
-	char foo;
-	std::cin >> foo;
-	return foo;
+char DebugDisplayer::readchar() {
+	return getchar();
 }

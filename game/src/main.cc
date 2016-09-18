@@ -23,7 +23,7 @@ int main() {
 	u.ux = rn2(MAX_COLS);
 	u.uy = rn2(MAX_ROWS);
 
-	gamemap.mapspace[u.ux].somestr[u.uy] = at;
+	gamemap.mapspace[u.uy].somestr[u.ux] = at;
 
 	display.refresh(gamemap);
 }

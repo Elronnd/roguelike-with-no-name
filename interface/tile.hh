@@ -7,7 +7,7 @@
 /* mapping from tile to unicode characters */
 /* Maybe some other stuff.  We"ll see. */
 
-strlist tileset() {
+inline strlist tileset() {
 	static strlist tileslist;
 	tileslist.resize(256);
 
