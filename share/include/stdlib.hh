@@ -7,7 +7,7 @@
 
 #pragma once
 #include "stddef.hh"
-/* Standard functions for use by the engine */
+/* Standard functions for use by stuff */
 
 namespace { std::random_device rnjesus; }
 /*struct RGBColour {
@@ -15,7 +15,7 @@ namespace { std::random_device rnjesus; }
 	unsigned char r, g, b;
 };*/
 
-bool isamemberof(int item, array set) {
+bool isamemberof(int item, list set) {
 	return std::find(std::begin(set), std::end(set), item) != std::end(set);
 }
 
@@ -60,7 +60,7 @@ bool isvalidcolour(str hexcolour) {
 }
 
 // converts, say, f to 15
-unsigned char onehexrgb(unsigned char tchar) {
+char onehexrgb(unsigned char tchar) {
 	switch(tchar) {
 		case '0': return 0;
 		case '1': return 1;
@@ -85,7 +85,9 @@ unsigned char onehexrgb(unsigned char tchar) {
 		case 'F':
 		case 'f': return 15;
 	}
-};
+	throw;
+	return -2;
+}
 
 
 RGBColour hex2rgb(str hexcolour) {

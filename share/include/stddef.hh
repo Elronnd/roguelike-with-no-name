@@ -6,8 +6,8 @@
 
 using std::vector;
 using str = std::string;
-using array = vector<int>;
-using strarray = vector<str>;
+using list = vector<int>;
+using strlist = vector<str>;
 
 struct RGBColour {
         RGBColour(int red=0, int green=0, int blue=0) { r=red; g=green; b=blue; }
@@ -18,6 +18,8 @@ struct RGBColour {
 /* also used by graphicals */
 
 enum Tile {
+	middot,
+	at,
 	light_square, /* they have gradients of how bright they are, but that's
                        * handled elsewhere */
 	medium_square,
@@ -124,7 +126,7 @@ enum Tile {
 };
 
 
-array wall_horizontal {
+list wall_horizontal {
 	wall_horizontal_thick,                  // ━
         wall_horizontal_thin,                   // ─
         wall_horizontal_thinleft_thickright,    // ╼
@@ -139,7 +141,7 @@ array wall_horizontal {
 	equals					// =
 };
 
-array wall_vertical {
+list wall_vertical {
 	wall_vertical_thick,			// ┃
 	wall_vertical_thin,			// │
 	wall_vertical_thintop_thickbottom,	// ╽
@@ -151,7 +153,7 @@ array wall_vertical {
 	wall_vertical_double,			// ║
 };
 
-array wall_lowerright {
+list wall_lowerright {
 	wall_lowerright_thick,			// ┛
 	wall_lowerright_thinbottom_thickside,	// ┚
 	wall_lowerright_thickbottom_thinside,	// ┙
@@ -162,7 +164,7 @@ array wall_lowerright {
 	wall_lowerright_singlebottom_doubleside,// ╜
 };
 
-array wall_lowerleft {
+list wall_lowerleft {
 	wall_lowerleft_thick,			// ┗
 	wall_lowerleft_thinbottom_thickside,	// ┖
 	wall_lowerleft_thickbottom_thinside,	// ┕
@@ -173,7 +175,7 @@ array wall_lowerleft {
 	wall_lowerleft_singlebottom_doubleside,	// ╙
 };
 
-array wall_uperright {
+list wall_uperright {
 	wall_upperright_thick,			// ┓
 	wall_upperright_thicktop_thinside,	// ┑
 	wall_upperright_thintop_thickside,	// ┒
@@ -184,7 +186,7 @@ array wall_uperright {
 	wall_uperright_singletop_doubleside,	// ╖
 };
 
-array wall_upperleft {
+list wall_upperleft {
 	wall_upperleft_thick,			// ┏
 	wall_upperleft_thicktop_thinside,	// ┍
 	wall_upperleft_thintop_thickside,	// ┎
@@ -195,7 +197,7 @@ array wall_upperleft {
 	wall_upperleft_singletop_doubleside	// ╓
 };
 
-array wall_t {
+list wall_t {
 	wall_t_thick,					// ╋
 	wall_t_thintop_thinright_thinbottom_thickleft,	// ┽
 	wall_t_thintop_thickright_thinbottom_thinleft,	// ┾
@@ -239,12 +241,12 @@ struct ColouredTileString {
 
 struct GameMap {
 	GameMap() {
-		mapspace.somestr.resize(20);
+		mapspace.resize(20);
 		hp = maxhp = mp = maxmp = -2;
 	}
 
 	vector<ColouredString> inventory;
-	ColouredTileString mapspace;
+	vector<ColouredTileString> mapspace;
 	// for (ColouredString line: currmap.mapspace) draw_coloured_string(line);
 
 	// When maxhp = -2, maxhp is uninitialized, and the player should be

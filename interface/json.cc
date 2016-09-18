@@ -3,10 +3,12 @@
 #include "stdlib.hh"
 #include "stddef.hh"
 #include "interface.hh"
+#include "tile.hh"
 
 // we're doing it dumbly, using str concatenation
 // the parser doesn't have that privelege, unfortunately
 
+using std::cout;
 
 // ex:
 /* {
@@ -57,25 +59,25 @@ str JSONDisplayer::rgbstr2json(ColouredString rgbstring) {
 }
 void JSONDisplayer::refresh(GameMap& map) {
 	cout << "{ \"is_gamemap\": true, \"gamemap\": [";
-	for (ColouredString line: map.mapspace) {
-		cout << "\":wq
-
-		currstring += "\"" + line.somestr + "\", " + rgbstr2json(line) + ", ";
+	for (ColouredTileString line: map.mapspace) {
+		cout << "\"";
+		for (Tile tile: line.somestr)
+			cout << tileset()[tile];
+		cout << "\",";
 	}
-	currstring += "], \"inventory\": [";
+	cout << "], \"inventory\": [";
 	for (ColouredString line: map.inventory) {
-		currstring += "\"" + line.somestr + "\", " + rgbstr2json(line) + ", ";
+		cout << "\"" + line.somestr + "\", " + rgbstr2json(line) + ", ";
 	}
 
-	currstring += "], \"havemsg\": ";
-	currstring += map.havemsg ? "true, \"msg\": \"" + map.msg.somestr + "\", \"msgcolors\": " + rgbstr2json(map.msg) : "false";
+	cout << "], \"havemsg\": ";
+	cout << (map.havemsg ? "true, \"msg\": \"" + map.msg.somestr + "\", \"msgcolors\": " + rgbstr2json(map.msg) : "false");
 
-	currstring += ", \"hp\": " + std::to_string(map.hp);
-	currstring += ", \"maxhp\": " + std::to_string(map.maxhp);
-	currstring += ", \"mp\": " + std::to_string(map.mp);
-	currstring += ", \"maxmp\": " + std::to_string(map.maxmp);
-	currstring += "}";
-	std::cout << currstring;
+	cout << ", \"hp\": " << std::to_string(map.hp);
+	cout << ", \"maxhp\": " << std::to_string(map.maxhp);
+	cout << ", \"mp\": " << std::to_string(map.mp);
+	cout << ", \"maxmp\": " << std::to_string(map.maxmp);
+	cout << "}";
 }
 
 void JSONDisplayer::animation_sparkle(short x, short y) {

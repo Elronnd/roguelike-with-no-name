@@ -7,10 +7,13 @@
 /* mapping from tile to unicode characters */
 /* Maybe some other stuff.  We"ll see. */
 
-strarray tileset() {
-	static strarray tileslist;
+strlist tileset() {
+	static strlist tileslist;
 	tileslist.resize(256);
 
+
+	tileslist[middot]	= "·";
+	tileslist[at] 		= "@";
 
 	tileslist[light_square]  = "░";
 	tileslist[medium_square] = "▒";
