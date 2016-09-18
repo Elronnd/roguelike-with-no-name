@@ -1,10 +1,7 @@
 language: c++
 sudo: required
 dist: yakkety
-script: "cd build; cmake .; make"
-compiler:
-  - gcc
-  - clang
+#script: "cd build; cmake .; make"
 notifications:
   irc:
     channels:
@@ -19,7 +16,7 @@ matrix:
             - ubuntu-toolchain-r-test
           packages:
             - g++-6
-      env: COMPILER=g++-6
+      script: "cd build; cmake . -DCMAKE_CXX_COMPILER=g++-6; make"
     - compiler: clang
       addons:
         apt:
@@ -28,4 +25,4 @@ matrix:
             - llvm-toolchain-precise-3.8
           packages:
             - clang-3.8
-      env: COMPILER=clang++-3.8
+      script: "cd build; cmake . -DCMAKE_CXX_COMPILER=clang++-3.8; make"

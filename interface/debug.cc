@@ -1,24 +1,22 @@
-#include <iostream>
 #include <string>
+#include <cstdio>
 #include "stdlib.hh"
 #include "stddef.hh"
 #include "interface.hh"
 #include "tile.hh"
 
-using std::cout;
-using std::endl;
 
 void DebugDisplayer::refresh(GameMap& map) {
 	for (ColouredTileString line: map.mapspace) {
 		for (Tile tile: line.somestr)
-			cout << tileset()[tile];
-		cout << endl;
+			printf("%s", tileset()[tile].c_str());
+		printf("\n");
 	}
-	cout << "hp: " << int(map.hp) << "(" << int(map.maxhp) << "), mp: " << int(map.mp) << "(" << int(map.maxmp) << ")." << endl;
+	printf("hp: %d(%d), mp: %d(%d)\n", map.hp, map.maxhp, map.mp, map.maxmp);
 }
 
 void DebugDisplayer::animation_sparkle(short x, short y) {
-	cout << "Sparkle animation at (" << x << "," << y << ")" << endl;
+	printf("Sparkle animation at (%d,%d)\n");
 }
 
 char DebugDisplayer::readchar() {
