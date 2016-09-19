@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 2.6)
 project (roguelike)
-SET (CMAKE_CXX_FLAGS  "-I../game/include -I../share/include -I../interface -std=c++11" )
+SET (CMAKE_CXX_FLAGS  "-I../game/include -I../share/include -I../interface -std=c++14" )
 add_library (interface STATIC ../interface/debug.cc ../interface/json.cc)
 add_executable (main ../game/src/main.cc)
 target_link_libraries (main interface)

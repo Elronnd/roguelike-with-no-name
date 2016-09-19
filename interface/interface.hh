@@ -7,6 +7,7 @@
 #pragma once
 class BaseDisplayer {
 	public:
+	virtual ~BaseDisplayer() = default;
 	virtual void refresh(GameMap&) = 0;
 	virtual void animation_sparkle(short, short) = 0;
 /*	virtual void animation_line(short, short, short, short,RGBColour) = 0;

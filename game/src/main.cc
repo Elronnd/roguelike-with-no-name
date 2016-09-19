@@ -2,11 +2,20 @@
 #include "stddef.hh"
 #include "stdlib.hh"
 #include "interface.hh"
+#include <memory>
+
+std::unique_ptr<BaseDisplayer> getinterface(bool wantdebug) {
+	if (wantdebug) {
+		return std::make_unique<DebugDisplayer>();
+	} else {
+		return std::make_unique<JSONDisplayer>();
+	}
+}
 
 
 int main() {
 	GameMap gamemap;
-	DebugDisplayer display;
+	auto display = getinterface(true);
 
 	// initialize with middots, no colours
 	for (ColouredTileString line: gamemap.mapspace) {
@@ -25,5 +34,5 @@ int main() {
 
 	gamemap.mapspace[u.uy].somestr[u.ux] = at;
 
-	display.refresh(gamemap);
+	display->refresh(gamemap);
 }
