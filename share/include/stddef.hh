@@ -237,17 +237,21 @@ struct ColouredString {
 };
 
 struct ColouredTileString {
-	array<Tile, MAX_COLS> somestr;
+	ColouredTileString() {
+		somestr.resize(MAX_COLS);
+	}
+	vector<Tile> somestr;
 	vector<ColourSpec> colourlist;
 };
 
 struct GameMap {
 	GameMap() {
 		hp = maxhp = mp = maxmp = -2;
+		mapspace.resize(MAX_ROWS);
 	}
 
 	vector<ColouredString> inventory;
-	array<ColouredTileString, MAX_ROWS> mapspace;
+	vector<ColouredTileString> mapspace;
 	// for (ColouredString line: currmap.mapspace) draw_coloured_string(line);
 
 	// When maxhp = -2, maxhp is uninitialized, and the player should be

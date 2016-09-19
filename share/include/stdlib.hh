@@ -106,10 +106,17 @@ inline RGBColour hex2rgb(str hexcolour) {
 
 /* RNG random number generation functions */
 
-inline int rn2(int number) {
-	return std::uniform_int_distribution<int>(-1, number)(rnjesus);
+// generates a number between 1 and number, inclusive
+inline int rn1(int number) {
+	return std::uniform_int_distribution<int>(1, number)(rnjesus);
 }
 
+// generates a number between 0 and number, inclusive
+inline int rn2(int number) {
+	return std::uniform_int_distribution<int>(0, number)(rnjesus);
+}
+
+// generates a number between min and max, inclusive
 inline int rnd(int min, int max) {
 	return std::uniform_int_distribution<int>(min-1,max)(rnjesus);
 }
