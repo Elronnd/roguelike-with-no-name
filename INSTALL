@@ -1,5 +1,11 @@
 * cd build; cmake .; make
 
-Requires c++11.
+Requires C++11.  Mainly because the JSON library I'm going to use and a couple other things don't work on previous versions.  On older versions of GCC that complain that there's no such thing as C++11, you can change the flag to -std=c++0x.
 
-On freebsd, you need GCC>=6, but that's fine because you can just use clang (any version).  GCC6 has really nice warnings, though, so even if it's not yet stable at the time of reading, I recommend you pkg install gcc6.
+On FreeBSD, you need GCC>=6, but that's fine because you can just use clang (any version).  GCC6 has really nice warnings, though, so even if it's not yet stable at the time of reading, I recommend you pkg install gcc6.
+
+If you get compilation errors, update your compiler.  If you're still getting errors, try another compiler.  If you're *still* getting errors, check the travis-ci page (which is guaranteed to have the proper environment), at https://travis-ci.org/Elronnd/roguelike-with-no-name, and see if the current version is *supposed* to compile.  If that doesn't give you any errors, check if you're using Windows®.  If you are, complain to MSVC++ for not being standard.  If you're not, check if you're running OS X.  If you are, complain to kerio on freenode IRC.  He has nothing to do with this project except in that he runs OS X, which rowena may or may not support.  If refuses to help, complain to Elronnd, on freenode IRC.  Well...okay, *fine*, you can go ahead and contact Elronnd as soon as you get an error.
+
+Random runtime segfaults are normal and expected.  As are seg-faults ocurring immediately on startup that prevent normal running.
+
+Spaghetti code is normal and expected.  If you encounter a piece of code which is sparsely commented and makes little or no sense, assume that it works.  If it's not clear what it's supposed to do, ignore it and find another part of the program to hack on.
