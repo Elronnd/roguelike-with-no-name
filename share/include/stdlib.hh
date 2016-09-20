@@ -113,7 +113,7 @@ inline int rn1(int number) {
 
 // generates a number between 0 and number, inclusive
 inline int rn2(int number) {
-	return std::uniform_int_distribution<int>(0, number)(rnjesus);
+	return std::uniform_int_distribution<int>(0, number-1)(rnjesus);
 }
 
 // generates a number between min and max, inclusive

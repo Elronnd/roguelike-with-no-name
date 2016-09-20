@@ -29,8 +29,8 @@ int main() {
 	u.hp = u.maxhp = rnd(15, 20);
 	u.mp = u.maxmp = rnd(15, 20);
 
-	u.ux = rn1(MAX_COLS)-1;
-	u.uy = rn1(MAX_ROWS)-1;
+	u.ux = rn2(MAX_COLS);
+	u.uy = rn2(MAX_ROWS);
 
 	gamemap.mapspace[u.uy].somestr[u.ux] = at;
 
