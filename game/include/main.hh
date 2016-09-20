@@ -1,4 +1,6 @@
 #include <string>
+#include "stddef.hh"
+#include "interface.hh"
 #pragma once
 
 class Being {
@@ -19,4 +21,12 @@ class Being {
 	bool isfemale() {
 		return !gender;
 	}
+};
+
+class Engine {
+	public:
+	void handlemove(char keypress);
+	DebugDisplayer *display = new DebugDisplayer;
+	GameMap map;
+	Being u;
 };
