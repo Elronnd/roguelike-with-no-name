@@ -4,14 +4,16 @@
 #include "interface.hh"
 #include <memory>
 
-void Engine::getinterface(bool wantdebug) {
+void Engine::setinterface(bool wantdebug) {
 	if (wantdebug) {
-		//return std::make_unique<DebugDisplayer>();
-		//this doesn't crash it...
 		this->display = std::make_unique<DebugDisplayer>();
 	} else {
 		this->display = std::make_unique<JSONDisplayer>();
 	}
+}
+
+void Engine::refresh() {
+	this->display->refresh(this->map);
 }
 
 
@@ -57,8 +59,7 @@ void Engine::handlemove(char inchar) {
 int main() {
 	Engine engine;
 	char inchar;
-	engine.getinterface(true);
-//	auto display = getinterface(true);
+	engine.setinterface(true);
 
 	// initialize with middots, no colours
 	for (ColouredTileString line: engine.map.mapspace) {

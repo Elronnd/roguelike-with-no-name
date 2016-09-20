@@ -26,7 +26,7 @@ class Being {
 class Engine {
 	public:
 	void handlemove(char);
-	void getinterface(bool);
+	void setinterface(bool);
 	void refresh();
 //	DebugDisplayer *display = new DebugDisplayer;
 	std::unique_ptr<BaseDisplayer> display;
