@@ -27,6 +27,7 @@ class Engine {
 	public:
 	void handlemove(char keypress);
 	DebugDisplayer *display = new DebugDisplayer;
+//	std::unique_ptr<BaseDisplayer> display;
 	GameMap map;
 	Being u;
 };

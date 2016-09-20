@@ -7,10 +7,13 @@
 std::unique_ptr<BaseDisplayer> getinterface(bool wantdebug) {
 	if (wantdebug) {
 		return std::make_unique<DebugDisplayer>();
+		//this doesn't crash it...
+		//this->interface = std::make_unique<DebugDisplayer>();
 	} else {
 		return std::make_unique<JSONDisplayer>();
 	}
 }
+
 
 void Engine::handlemove(char inchar) {
 	switch(inchar) {
@@ -77,6 +80,7 @@ int main() {
 
 	engine.map.mapspace[engine.u.uy].somestr[engine.u.ux] = at;
 
+	// ... but this does
 	engine.display->refresh(engine.map);
 	while ((inchar = engine.display->readchar()) != 'q')
 		engine.handlemove(inchar);
