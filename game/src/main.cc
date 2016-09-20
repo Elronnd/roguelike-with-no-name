@@ -49,6 +49,7 @@ void Engine::handlemove(char inchar) {
 			}
 			display->refresh(map);
 			break;
+		default: display->refresh(map); break;
 	}
 }
 
@@ -73,7 +74,7 @@ int main() {
 	engine.u.uy = rn2(MAX_ROWS);
 
 	engine.map.hp = engine.u.hp;
-	engine.map.hp = engine.u.hp;
+	engine.map.mp = engine.u.mp;
 
 	engine.map.maxhp = engine.u.maxhp;
 	engine.map.maxmp = engine.u.maxmp;
