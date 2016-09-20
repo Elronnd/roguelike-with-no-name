@@ -1,11 +1,13 @@
 language: c++
 sudo: required
 dist: yakkety
+
 notifications:
   irc:
     channels:
       - "irc.freenode.net#em.slashem.me"
     skip_join: true
+
 matrix:
   include:
     - compiler: gcc
@@ -24,4 +26,5 @@ matrix:
             - llvm-toolchain-precise-3.8
           packages:
             - clang-3.8
-      script: "cd build; cmake . -DCMAKE_CXX_COMPILER=clang++-3.8; make"
+            - libc++-dev
+      script: "cd build; cmake . -DCMAKE_CXX_COMPILER=clang++-3.8 -DCMAKE_CXX_FLAGS=\"-I../game/include -I../share/include -I../interface -std=c++14\"; make"
