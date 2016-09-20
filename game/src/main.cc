@@ -4,13 +4,13 @@
 #include "interface.hh"
 #include <memory>
 
-std::unique_ptr<BaseDisplayer> getinterface(bool wantdebug) {
+void Engine::getinterface(bool wantdebug) {
 	if (wantdebug) {
-		return std::make_unique<DebugDisplayer>();
+		//return std::make_unique<DebugDisplayer>();
 		//this doesn't crash it...
-		//this->interface = std::make_unique<DebugDisplayer>();
+		this->display = std::make_unique<DebugDisplayer>();
 	} else {
-		return std::make_unique<JSONDisplayer>();
+		this->display = std::make_unique<JSONDisplayer>();
 	}
 }
 
@@ -57,6 +57,7 @@ void Engine::handlemove(char inchar) {
 int main() {
 	Engine engine;
 	char inchar;
+	engine.getinterface(true);
 //	auto display = getinterface(true);
 
 	// initialize with middots, no colours

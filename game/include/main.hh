@@ -25,9 +25,11 @@ class Being {
 
 class Engine {
 	public:
-	void handlemove(char keypress);
-	DebugDisplayer *display = new DebugDisplayer;
-//	std::unique_ptr<BaseDisplayer> display;
+	void handlemove(char);
+	void getinterface(bool);
+	void refresh();
+//	DebugDisplayer *display = new DebugDisplayer;
+	std::unique_ptr<BaseDisplayer> display;
 	GameMap map;
 	Being u;
 };
