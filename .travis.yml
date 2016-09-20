@@ -27,4 +27,4 @@ matrix:
           packages:
             - clang-3.8
             - libc++-dev
-      script: "cd build; cmake . -DCMAKE_CXX_COMPILER=clang++-3.8 -DCMAKE_CXX_FLAGS=\"-I../game/include -I../share/include -I../interface -std=c++14\"; make"
+      script: "cd build; cmake . -DCMAKE_CXX_COMPILER=clang++-3.8 -DCMAKE_CXX_FLAGS=\"-I../game/include -I../share/include -I../interface -std=c++14 -stdlib=libc++\"; make"
