@@ -25,6 +25,7 @@
 
 #include "uncursed_hooks.h"
 #include "uncursed_tty.h"
+#include "dumbmake.h"
 
 static struct uncursed_hooks tty_uncursed_hooks = {
     tty_hook_init,

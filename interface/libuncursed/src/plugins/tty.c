@@ -76,6 +76,7 @@
                                    Linux */
 #define __BSD_VISIBLE 1         /* needed for SIGWINCH on FreeBSD; no effect
                                    on Linux */
+#include "dumbmake.h"
 #include <sys/select.h>
 #include <termios.h>
 #include <unistd.h>

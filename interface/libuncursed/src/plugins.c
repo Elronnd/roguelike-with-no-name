@@ -13,6 +13,7 @@
    platform-specific maner.
 */
 
+#include "dumbmake.h"
 #define UNCURSED_MAIN_PROGRAM
 #include "uncursed_hooks.h"
 #include <stdlib.h>

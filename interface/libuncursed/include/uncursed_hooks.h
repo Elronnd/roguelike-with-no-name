@@ -11,6 +11,7 @@
 
 #include <stddef.h>
 #include <wchar.h>
+#include "dumbmake.h"
 
 #ifdef __cplusplus
 extern "C" {

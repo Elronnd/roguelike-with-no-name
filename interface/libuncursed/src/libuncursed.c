@@ -32,6 +32,7 @@
 #include <stdbool.h>
 
 #define UNCURSED_MAIN_PROGRAM
+#include "dumbmake.h"
 #include "uncursed.h"
 #include "uncursed_hooks.h"
 
