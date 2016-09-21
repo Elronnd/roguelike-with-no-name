@@ -1,6 +1,12 @@
 * cd build; cmake .; make
 
-Requires C++11.  Mainly because the JSON library I'm going to use and a couple other things don't work on previous versions.  On older versions of GCC that complain that there's no such thing as C++11, you can change the flag to -std=c++0x.
+alternatively:
+
+* cd build; cmake . -G Ninja; ninja
+
+if you have a multi-core system and feel like waiting a couple fewer seconds
+
+Requires C++14.  Mainly because the JSON library I'm going to use and a couple other things don't work on previous versions.  On older compilers  that complain that there's no such thing as C++14, you can change the flag to -std=c++1y.
 
 On FreeBSD, you need GCC>=6, but that's fine because you can just use clang (any version).  GCC6 has really nice warnings, though, so even if it's not yet stable at the time of reading, I recommend you pkg install gcc6.
 
