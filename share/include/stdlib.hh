@@ -127,7 +127,6 @@ inline int rne(int x) {
 
 //	utmp = (u.ulevel < 15) ? 5 : u.ulevel / 3;
 //	was ^^ in nethack
-	utmp = 100;
 	tmp = 1;
 	while (tmp < 100 && !rn2(x))
 		tmp++;
