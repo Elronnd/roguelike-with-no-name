@@ -4,23 +4,10 @@
 #include "interface.hh"
 #include <memory>
 
-void Engine::setinterface(bool wantdebug) {
-	if (wantdebug) {
-		this->display = std::make_unique<DebugDisplayer>();
-	} else {
-		this->display = std::make_unique<JSONDisplayer>();
-	}
-}
-
-void Engine::refresh() {
-	this->display->refresh(this->map);
-}
-
-
 void Engine::handlemove(char inchar) {
 	switch(inchar) {
 		case 'h':
-			if (u.ux != 0) {
+			if (u.ux > 0) {
 				map.mapspace[u.uy].somestr[u.ux] = middot;
 				u.ux--;
 				map.mapspace[u.uy].somestr[u.ux] = at;
@@ -28,7 +15,7 @@ void Engine::handlemove(char inchar) {
 				display->refresh(map);
 			break;
 		case 'l':
-			if (u.ux != MAX_ROWS) {
+			if (u.ux < MAX_COLS-1) {
 				map.mapspace[u.uy].somestr[u.ux] = middot;
 				u.ux++;
 				map.mapspace[u.uy].somestr[u.ux] = at;
@@ -36,7 +23,7 @@ void Engine::handlemove(char inchar) {
 				display->refresh(map);
 			break;
 		case 'k':
-			if (u.uy != 0) {
+			if (u.uy > 0) {
 				map.mapspace[u.uy].somestr[u.ux] = middot;
 				u.uy--;
 				map.mapspace[u.uy].somestr[u.ux] = at;
@@ -44,7 +31,7 @@ void Engine::handlemove(char inchar) {
 				display->refresh(map);
 			break;
 		case 'j':
-			if (u.uy != MAX_COLS) {
+			if (u.uy < MAX_ROWS-1) {
 				map.mapspace[u.uy].somestr[u.ux] = middot;
 				u.uy++;
 				map.mapspace[u.uy].somestr[u.ux] = at;

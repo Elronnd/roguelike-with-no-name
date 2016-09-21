@@ -111,12 +111,54 @@ inline int rn1(int number) {
 	return std::uniform_int_distribution<int>(1, number)(rnjesus);
 }
 
-// generates a number between 0 and number, inclusive
+// generates a number between 0 and number-1, inclusive
 inline int rn2(int number) {
 	return std::uniform_int_distribution<int>(0, number-1)(rnjesus);
 }
 
 // generates a number between min and max, inclusive
 inline int rnd(int min, int max) {
-	return std::uniform_int_distribution<int>(min-1,max)(rnjesus);
+	return std::uniform_int_distribution<int>(min,max)(rnjesus);
+}
+
+// generates numbers geometrically.  Increasingly likely to generate lower numbers
+inline int rne(int x) {
+	int tmp, utmp;
+
+//	utmp = (u.ulevel < 15) ? 5 : u.ulevel / 3;
+//	was ^^ in nethack
+	utmp = 100;
+	tmp = 1;
+	while (tmp < 100 && !rn2(x))
+		tmp++;
+	return tmp;
+}
+
+// rnz().  Here be dragons.
+inline int rnz(int i) {
+	int x = i;
+	int tmp = 1000;
+
+	tmp += rn2(1000);
+	tmp *= rne(4);
+
+	if (rn2(2)) {
+		x *= tmp;
+		x /= 1000;
+	} else {
+		x *= 1000;
+		x /= tmp;
+	}
+	return (int) x;
+}
+
+// for dnd style Ndn stuff like 5d6 will generate a number between 1 and 6 5
+// times and return the cumulative answer
+// actual code is from nethack
+inline int d(int n, x) {
+	int tmp;
+
+	while (n--)
+		tmp += rn1(x)
+	return tmp;
 }
