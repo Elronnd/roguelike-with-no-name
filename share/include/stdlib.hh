@@ -154,10 +154,10 @@ inline int rnz(int i) {
 // for dnd style Ndn stuff like 5d6 will generate a number between 1 and 6 5
 // times and return the cumulative answer
 // actual code is from nethack
-inline int d(int n, x) {
+inline int d(int n, int x) {
 	int tmp;
 
 	while (n--)
-		tmp += rn1(x)
+		tmp += rn1(x);
 	return tmp;
 }
