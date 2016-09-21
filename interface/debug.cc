@@ -22,3 +22,5 @@ void DebugDisplayer::animation_sparkle(short x, short y) {
 char DebugDisplayer::readchar() {
 	return getchar();
 }
+
+void DebugDisplayer::initscr() {}

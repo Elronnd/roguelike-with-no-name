@@ -92,3 +92,5 @@ void JSONDisplayer::animation_sparkle(short x, short y) {
 char JSONDisplayer::readchar() {
 	return getchar();
 }
+
+void JSONDisplayer::initscr() {}
