@@ -12,6 +12,11 @@
 #include <stddef.h>     /* for wchar_t */
 #include <stdarg.h>
 #include <wchar.h>
+#include "dumbmake.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #ifdef UNCURSED_MAIN_PROGRAM
 # define EI(x) AIMAKE_EXPORT(x)
@@ -610,3 +615,6 @@ extern int EI(wresize) (WINDOW *, int, int);
    termcap, terminfo: left unimplemented */
 /* manual page 3ncurses mouse implemented differently (and incompatibly) */
 /* manual pages 3ncurses ins*, resizeterm not implemented for now: TODO */
+#ifdef __cplusplus
+}
+#endif
