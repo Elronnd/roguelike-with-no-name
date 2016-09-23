@@ -1,7 +1,7 @@
 cmake_minimum_required (VERSION 2.6)
 project (roguelike)
 SET (CMAKE_CXX_FLAGS  "-I../game/include -I../share/include -I../interface -I../interface/libuncursed/fiqshacks -I../interface/libuncursed/include -std=c++14 -Wall -Wextra" )
-SET (CMAKE_C_FLAGS "-I../interface/libuncursed/fiqshacks -I../interface/libuncursed/include -Wall -Wextra" )
+SET (CMAKE_C_FLAGS "-I../interface/libuncursed/fiqshacks -I../interface/libuncursed/include -Wall -Wextra -Wno-missing-field-initializers" )
 
 #option(build_libuncursed_tty "build_libuncursed_tty" ON)
 #option(build_libuncursed_sdl "build_libuncursed_sdl" OFF)
@@ -18,11 +18,8 @@ else()
 	message(FATAL_ERROR "Your OS doesn't seem to be one of: OS X, FreeBSD, Linux, Windows.  Please complain to Elronnd." )
 endif()
 
-message(${CMAKE_C_FLAGS})
-message(${CMAKE_CXX_FLAGS})
-
 add_library (interface STATIC ../interface/debug.cc ../interface/json.cc ../interface/uncursed.cc)
-add_library (uncursed SHARED ../interface/libuncursed/fiqshacks/dumbmake_get_option.c ../interface/libuncursed/src/libuncursed.c ../interface/libuncursed/src/plugins.c ../interface/libuncursed/src/plugins/tty.c ../interface/libuncursed/src/plugins/tty.cxx )
+add_library (uncursed SHARED ../interface/libuncursed/src/libuncursed.c ../interface/libuncursed/src/plugins.c ../interface/libuncursed/src/plugins/tty.c ../interface/libuncursed/src/plugins/tty.cxx )
 add_executable (main ../game/src/main.cc ../game/src/util.cc ../game/src/move.cc)
 target_link_libraries (main interface)
 target_link_libraries (main uncursed)
