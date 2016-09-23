@@ -14,7 +14,9 @@
 #include <wchar.h>
 #include "dumbmake.h"
 
+#pragma once
 #ifdef __cplusplus
+//namespace uncursed;
 extern "C" {
 #endif
 

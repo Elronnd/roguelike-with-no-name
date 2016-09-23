@@ -123,7 +123,7 @@ inline int rnd(int min, int max) {
 
 // generates numbers geometrically.  Increasingly likely to generate lower numbers
 inline int rne(int x) {
-	int tmp, utmp;
+	int tmp;
 
 //	utmp = (u.ulevel < 15) ? 5 : u.ulevel / 3;
 //	was ^^ in nethack
@@ -155,7 +155,7 @@ inline int rnz(int i) {
 // times and return the cumulative answer
 // actual code is from nethack
 inline int d(int n, int x) {
-	int tmp;
+	int tmp = 0;
 
 	while (n--)
 		tmp += rn1(x);

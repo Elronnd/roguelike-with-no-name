@@ -1,6 +1,7 @@
 #include <string>
 #include "stddef.hh"
 #include "stdlib.hh"
+#include "uncursed.h"
 
 /* API description for the displayer */
 
@@ -13,7 +14,7 @@ class BaseDisplayer {
 /*	virtual void animation_line(short, short, short, short,RGBColour) = 0;
 	virtual void animation_gradientline(short, short, short, short, RGBColour, RGBColour) = 0;*/
 	virtual char readchar() = 0;
-	virtual void initscr() = 0;
+	virtual void start(int *, char **) = 0;
 };
 class JSONDisplayer: public BaseDisplayer {
 	private:
@@ -24,7 +25,7 @@ class JSONDisplayer: public BaseDisplayer {
 /*	void animation_line(short, short, short, short,RGBColour) override;
 	void animation_gradientline(short, short, short, short, RGBColour, RGBColour) override;*/
 	char readchar() override;
-	void initscr() override;
+	void start(int *, char **) override;
 };
 
 class DebugDisplayer: public BaseDisplayer {
@@ -34,5 +35,18 @@ class DebugDisplayer: public BaseDisplayer {
 /*	void animation_line(short, short, short, short,RGBColour) override;
 	void animation_gradientline(short, short, short, short, RGBColour, RGBColour) override;*/
 	char readchar() override;
-	void initscr() override;
+	void start(int *, char **) override;
+};
+
+class UncursedDisplayer: public BaseDisplayer {
+	private:
+	WINDOW *win;
+	WINDOW *currwin;
+	public:
+	void refresh(GameMap&) override;
+	void animation_sparkle(short, short) override;
+/*	void animation_line(short, short, short, short,RGBColour) override;
+	void animation_gradientline(short, short, short, short, RGBColour, RGBColour) override;*/
+	char readchar() override;
+	void start(int *, char **) override;
 };

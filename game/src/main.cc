@@ -7,10 +7,13 @@
 
 
 
-int main() {
+int main(int argc, char **argp) {
 	Engine engine;
 	char inchar;
-	engine.setinterface(true);
+
+	// default is 'u' for 'uncursed
+	// you can also use 'j' for json, and 'd' for debug. case-insensitive
+	engine.setinterface();
 
 	// initialize with middots, no colours
 	for (ColouredTileString line: engine.map.mapspace) {
@@ -35,6 +38,7 @@ int main() {
 	engine.map.mapspace[engine.u.uy].somestr[engine.u.ux] = at;
 
 	// ... but this does
+	engine.display->start(&argc, argp);
 	engine.display->refresh(engine.map);
 	while ((inchar = engine.display->readchar()) != 'q')
 		engine.handlemove(inchar);
