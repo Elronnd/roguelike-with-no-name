@@ -16,9 +16,9 @@ int main(int argc, char **argp) {
 	engine.setinterface();
 
 	// initialize with middots, no colours
-	for (ColouredTileString line: engine.map.mapspace) {
-		for (Tile tile: line.somestr) {
-			tile = middot;
+	for (ColouredGlyphString line: engine.map.mapspace) {
+		for (Glyph glyph: line.somestr) {
+			glyph = middot;
 		}
 	}
 

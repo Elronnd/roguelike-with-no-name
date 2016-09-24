@@ -22,7 +22,7 @@ struct RGBColour {
 /* includes defines like what the map is */
 /* also used by graphicals */
 
-enum Tile {
+enum Glyph {
 	middot,
 	at,
 	light_square, /* they have gradients of how bright they are, but that's
@@ -236,11 +236,11 @@ struct ColouredString {
 	vector<ColourSpec> colourlist;
 };
 
-struct ColouredTileString {
-	ColouredTileString() {
+struct ColouredGlyphString {
+	ColouredGlyphString() {
 		somestr.resize(MAX_COLS);
 	}
-	vector<Tile> somestr;
+	vector<Glyph> somestr;
 	vector<ColourSpec> colourlist;
 };
 
@@ -251,7 +251,7 @@ struct GameMap {
 	}
 
 	vector<ColouredString> inventory;
-	vector<ColouredTileString> mapspace;
+	vector<ColouredGlyphString> mapspace;
 	// for (ColouredString line: currmap.mapspace) draw_coloured_string(line);
 
 	// When maxhp = -2, maxhp is uninitialized, and the player should be

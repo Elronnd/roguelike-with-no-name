@@ -24,9 +24,9 @@ void UncursedDisplayer::refresh(GameMap& map) {
 	int row, col;
 	row = col = 0;
 	col++;
-	for (ColouredTileString line: map.mapspace) {
-		for (Tile tile: line.somestr) {
-			mvwaddwstr(this->win, col, row, (wchar_t *) wtileset()[tile].c_str());
+	for (ColouredGlyphString line: map.mapspace) {
+		for (Glyph glyph: line.somestr) {
+			mvwaddwstr(this->win, col, row, (wchar_t *) wtileset()[glyph].c_str());
 			row++;
 		}
 		col++;

@@ -57,10 +57,10 @@ str JSONDisplayer::rgbstr2json(ColouredString rgbstring) {
 }
 void JSONDisplayer::refresh(GameMap& map) {
 	printf("{ \"is_gamemap\": true, \"gamemap\": [");
-	for (ColouredTileString line: map.mapspace) {
+	for (ColouredGlyphString line: map.mapspace) {
 		printf("\"");
-		for (Tile tile: line.somestr)
-			printf("%s", tileset()[tile].c_str());
+		for (Glyph glyph: line.somestr)
+			printf("%s", tileset()[glyph].c_str());
 		printf("\",");
 	}
 	printf("], \"inventory\": [");
