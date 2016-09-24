@@ -17,7 +17,7 @@ int main(int argc, char **argp) {
 
 	// initialize with middots, no colours
 	for (ColouredGlyphString line: engine.map.mapspace) {
-		for (Glyph glyph: line.somestr) {
+		for (Glyph& glyph: line.somestr) {
 			glyph = middot;
 		}
 	}
