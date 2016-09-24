@@ -23,4 +23,5 @@ char DebugDisplayer::readchar() {
 	return getchar();
 }
 
-void DebugDisplayer::start(int *argc, char **argp) {(void) argc; (void) argp;}
+void DebugDisplayer::start(int *argc, char **argp, str title) {(void) argc; (void) argp; (void) title; }
+void DebugDisplayer::end() {}

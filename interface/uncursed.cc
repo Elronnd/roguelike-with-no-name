@@ -12,10 +12,11 @@
 #define x() getmaxx(win)
 #define y() getmaxy(win)
 
-void UncursedDisplayer::start(int *argc, char **argp) {
+void UncursedDisplayer::start(int *argc, char **argp, str title) {
 	setlocale(LC_ALL, "en_US.utf8");
 	initialize_uncursed(argc, argp);
 	this->win = initscr();
+	uncursed_set_title(title.c_str());
 	this->currwin = newwin(80, 20, 1, 1);
 	curs_set(0);
 }
@@ -44,4 +45,8 @@ char UncursedDisplayer::readchar() {
 void UncursedDisplayer::animation_sparkle(short x, short y) {
 	(void) x;
 	(void) y;
+}
+
+void UncursedDisplayer::end() {
+	endwin();
 }

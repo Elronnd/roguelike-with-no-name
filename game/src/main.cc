@@ -41,5 +41,6 @@ int main(int argc, char **argp) {
 	engine.display->refresh(engine.map);
 	while ((inchar = engine.display->readchar()) != 'q')
 		engine.handlemove(inchar);
+	engine.display->end();
 	return 0;
 }
