@@ -11,8 +11,10 @@
 using std::vector;
 using std::array;
 using str = std::string;
+using wstr = std::wstring;
 using list = vector<int>;
 using strlist = vector<str>;
+using wstrlist = vector<wstr>;
 
 struct RGBColour {
         RGBColour(int red=0, int green=0, int blue=0) { r=red; g=green; b=blue; }

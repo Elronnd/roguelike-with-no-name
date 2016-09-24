@@ -115,7 +115,7 @@ inline strlist tileset() {
 }
 
 
-inline vector<std::wstring> wtileset() {
+inline wstrlist wtileset() {
 	static vector<std::wstring> tileslist;
 	tileslist.resize(255);
 
