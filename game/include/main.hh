@@ -23,13 +23,32 @@ class Being {
 	}
 };
 
+enum CMD {
+	cmd_north,
+	cmd_south,
+	cmd_east,
+	cmd_west,
+	cmd_northeast,
+	cmd_northwest,
+	cmd_southeast,
+	cmd_southwest,
+	cmd_wait,
+	cmd_pickup,
+	cmd_quit,
+	cmd_unknown
+};
+
 class Engine {
 	public:
+	void init(int, char **);
+	void run();
 	void handlemove(char);
 	void setinterface(char='u');
 	void refresh();
-//	DebugDisplayer *display = new DebugDisplayer;
 	std::unique_ptr<BaseDisplayer> display;
 	GameMap map;
 	Being u;
+	vector<CMD> vikeys;
+	void makecmds();
+//	vector<char> listofvikeys
 };

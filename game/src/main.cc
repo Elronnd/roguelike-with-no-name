@@ -4,43 +4,47 @@
 #include "interface.hh"
 #include <memory>
 
-
-
-
-int main(int argc, char **argp) {
-	Engine engine;
-	char inchar;
-
-	// default is 'u' for 'uncursed
-	// you can also use 'j' for json, and 'd' for debug. case-insensitive
-	engine.setinterface();
+void Engine::init(int argc, char **argp) {
+	// default is 'u' for "uncursed"
+	// you can also use 'j' for json or 'd' for debug.  case-insensitive
+	setinterface();
 
 	// initialize with middots, no colours
-	for (ColouredGlyphString line: engine.map.mapspace) {
+	for (ColouredGlyphString line: this->map.mapspace) {
 		for (Glyph& glyph: line.somestr) {
 			glyph = middot;
 		}
 	}
 
+	u.hp = u.maxhp = rnd(15, 20);
+	u.mp = u.maxmp = rnd(15, 20);
 
-	engine.u.hp = engine.u.maxhp = rnd(15, 20);
-	engine.u.mp = engine.u.maxmp = rnd(15, 20);
+	u.ux = rn2(MAX_COLS);
+	u.uy = rn2(MAX_ROWS);
 
-	engine.u.ux = rn2(MAX_COLS);
-	engine.u.uy = rn2(MAX_ROWS);
+	map.hp = u.hp;
+	map.mp = u.mp;
+	map.maxhp = u.maxhp;
+	map.maxmp = u.maxmp;
 
-	engine.map.hp = engine.u.hp;
-	engine.map.mp = engine.u.mp;
+	map.mapspace[u.uy].somestr[u.ux] = at;
 
-	engine.map.maxhp = engine.u.maxhp;
-	engine.map.maxmp = engine.u.maxmp;
+	display->start(&argc, argp);
+	refresh();
+}
 
-	engine.map.mapspace[engine.u.uy].somestr[engine.u.ux] = at;
+void Engine::run() {
+	char inchar;
 
-	engine.display->start(&argc, argp);
-	engine.display->refresh(engine.map);
-	while ((inchar = engine.display->readchar()) != 'q')
-		engine.handlemove(inchar);
-	engine.display->end();
+        while ((inchar = display->readchar()) != 'q')
+                handlemove(inchar);
+        display->end();
+}
+
+
+int main(int argc, char **argp) {
+	Engine engine;
+	engine.init(argc, argp);
+	engine.run();
 	return 0;
 }
