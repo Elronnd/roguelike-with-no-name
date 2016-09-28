@@ -1,0 +1,11 @@
+Rough design goals.  Liable to change at any time:
+
+* Really big map, like, world-sized.  Maybe.
+
+* You can work for the devil
+
+* Mapgen: mostly corridors, not very many rooms.  Find a way to make this not grindy.
+ - generate rooms rnz(30) apart in each direction.
+ - their size is rnz(10) multiplied by 2 half the time, divided by 2 the other half
+ - corridors are between 1 and 3 cells thick, and switch every rn2(20) cells
+ - corridors go for rnz(11) cells before either stopping at a room or going again in a random direction
