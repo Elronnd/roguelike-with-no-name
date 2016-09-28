@@ -1,7 +1,7 @@
 cmake_minimum_required (VERSION 2.6)
 project (roguelike)
-SET (CMAKE_CXX_FLAGS  "-I../game/include -I../share/include -I../interface -I../interface/libuncursed/fiqshacks -I../interface/libuncursed/include -std=c++14 -Wall -Wextra" )
-SET (CMAKE_C_FLAGS "-I../interface/libuncursed/fiqshacks -I../interface/libuncursed/include -Wall -Wextra -Wno-missing-field-initializers" )
+SET (CMAKE_CXX_FLAGS  "-I../game/include -I../share/include -I../interface -I../interface/libuncursed/fiqshacks -I../interface/libuncursed/include -std=c++14 -Wall -Wextra -Wpedantic -Werror" )
+SET (CMAKE_C_FLAGS "-I../interface/libuncursed/fiqshacks -I../interface/libuncursed/include -Wall -Wextra -Wno-missing-field-initializers -Wno-sign-compare -Werror" )
 
 #option(build_libuncursed_tty "build_libuncursed_tty" ON)
 #option(build_libuncursed_sdl "build_libuncursed_sdl" OFF)

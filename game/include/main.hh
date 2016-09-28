@@ -42,7 +42,7 @@ class Engine {
 	public:
 	void init(int, char **);
 	void run();
-	void handlemove(char);
+	void handlemove(CMD);
 	void setinterface(char='u');
 	void refresh();
 	std::unique_ptr<BaseDisplayer> display;
@@ -50,5 +50,5 @@ class Engine {
 	Being u;
 	vector<CMD> vikeys;
 	void makecmds();
-//	vector<char> listofvikeys
+	vector<int> listofvikeys {'h', 'j', 'k', 'l', 'y', 'u', 'b', 'n', '.', ',', 'q'};
 };

@@ -252,6 +252,8 @@ struct GameMap {
 		mapspace.resize(MAX_ROWS);
 	}
 
+	short x, y;
+
 	vector<ColouredString> inventory;
 	vector<ColouredGlyphString> mapspace;
 	// for (ColouredString line: currmap.mapspace) draw_coloured_string(line);

@@ -7,7 +7,9 @@
 void Engine::init(int argc, char **argp) {
 	// default is 'u' for "uncursed"
 	// you can also use 'j' for json or 'd' for debug.  case-insensitive
-	setinterface();
+	setinterface('d');
+
+	makecmds();
 
 	// initialize with middots, no colours
 	for (ColouredGlyphString line: this->map.mapspace) {
@@ -36,8 +38,14 @@ void Engine::init(int argc, char **argp) {
 void Engine::run() {
 	char inchar;
 
-        while ((inchar = display->readchar()) != 'q')
-                handlemove(inchar);
+	while ((inchar = display->readchar())) {
+		if (isamemberof(inchar, listofvikeys)) {
+			if (vikeys[inchar] == cmd_quit)
+				break;
+			handlemove(isamemberof(inchar, listofvikeys) ? vikeys[inchar] : cmd_unknown);
+		} else
+			handlemove(cmd_unknown);
+	}
         display->end();
 }
 

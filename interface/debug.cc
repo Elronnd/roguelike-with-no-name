@@ -13,6 +13,7 @@ void DebugDisplayer::refresh(GameMap& map) {
 		printf("\n");
 	}
 	printf("hp: %d(%d), mp: %d(%d)\n", map.hp, map.maxhp, map.mp, map.maxmp);
+	printf("Loc: (%d,%d)\n", map.x, map.y);
 }
 
 void DebugDisplayer::animation_sparkle(short x, short y) {
