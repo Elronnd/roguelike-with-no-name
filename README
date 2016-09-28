@@ -1,1 +1,1 @@
-Game logic goes in game/.  User Interfaces will go in in interfaces/, at some point.
+Game logic goes in game/.  User Interfaces go in interfaces/.  Shared headers (that is, shared between the interfaces and the engine) go in share/.  Any other files or directories are a figment of your imagination.

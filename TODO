@@ -5,6 +5,7 @@ Rough design goals.  Liable to change at any time:
 * You can work for the devil
 
 * Mapgen: mostly corridors, not very many rooms.  Find a way to make this not grindy.
+ - NOTE: all of the NUMBERS following will almost certainly be changed when I find out what kind of map they generate, but they should give a general idea of what sort of dungeon is being made.
  - generate rooms rnz(30) apart in each direction.
  - their size is rnz(10) multiplied by 2 half the time, divided by 2 the other half
  - corridors are between 1 and 3 cells thick, and switch every rn2(20) cells
