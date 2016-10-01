@@ -17,7 +17,7 @@ matrix:
             - ubuntu-toolchain-r-test
           packages:
             - g++-6
-      script: "cd build; cmake . -DCMAKE_CXX_COMPILER=g++-6 -DCMAKE_C_COMPILER=gcc-6 -DCMAKE_EXE_LINKER_FLAGS=\"-Wl,--no-as-needed -ldl\"; make"
+      script: "cd build; cmake . -DCMAKE_CXX_COMPILER=g++-6; make"
 #    - compiler: clang
 #      addons:
 #        apt:

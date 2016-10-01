@@ -1,7 +1,6 @@
 #include <string>
 #include "stddef.hh"
 #include "stdlib.hh"
-#include "uncursed.h"
 
 /* API description for the displayer */
 
@@ -31,20 +30,6 @@ class JSONDisplayer: public BaseDisplayer {
 };
 
 class DebugDisplayer: public BaseDisplayer {
-	public:
-	void refresh(GameMap&) override;
-	void animation_sparkle(short, short) override;
-/*	void animation_line(short, short, short, short,RGBColour) override;
-	void animation_gradientline(short, short, short, short, RGBColour, RGBColour) override;*/
-	char readchar() override;
-	void start(int *, char **, str="") override;
-	void end() override;
-};
-
-class UncursedDisplayer: public BaseDisplayer {
-	private:
-	WINDOW *win;
-	WINDOW *currwin;
 	public:
 	void refresh(GameMap&) override;
 	void animation_sparkle(short, short) override;
