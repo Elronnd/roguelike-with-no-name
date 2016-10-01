@@ -7,7 +7,7 @@
 void Engine::init(int argc, char **argp) {
 	// default is 'u' for "uncursed"
 	// you can also use 'j' for json or 'd' for debug.  case-insensitive
-	setinterface('d');
+	setinterface();
 
 	makecmds();
 

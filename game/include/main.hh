@@ -43,7 +43,7 @@ class Engine {
 	void init(int, char **);
 	void run();
 	void handlemove(CMD);
-	void setinterface(char='u');
+	void setinterface(char='d');
 	void refresh();
 	std::unique_ptr<BaseDisplayer> display;
 	GameMap map;
