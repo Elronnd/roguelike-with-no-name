@@ -11,10 +11,7 @@ void Engine::setinterface(char type) {
 		case 'j':
 		case 'J': this->display = std::make_unique<JSONDisplayer>();
 			  break;
-		case 'u':
-		case 'U': this->display = std::make_unique<UncursedDisplayer>();
-			  break;
-		default: this->display = std::make_unique<UncursedDisplayer>();
+		default: this->display = std::make_unique<DebugDisplayer>();
 	}
 }
 
