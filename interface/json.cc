@@ -93,5 +93,5 @@ char JSONDisplayer::readchar() {
 	return getchar();
 }
 
-void JSONDisplayer::start(int *argc, char **argp, str title) {(void) argc; (void) argp; (void) title; }
+void JSONDisplayer::start() {}
 void JSONDisplayer::end() {}

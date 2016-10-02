@@ -4,7 +4,7 @@
 #include "interface.hh"
 #include <memory>
 
-void Engine::init(int argc, char **argp) {
+void Engine::init() {
 	// default is 'u' for "uncursed"
 	// you can also use 'j' for json or 'd' for debug.  case-insensitive
 	setinterface();
@@ -31,7 +31,7 @@ void Engine::init(int argc, char **argp) {
 
 	map.mapspace[u.uy].somestr[u.ux] = at;
 
-	display->start(&argc, argp);
+	display->start();
 	refresh();
 }
 
@@ -50,9 +50,9 @@ void Engine::run() {
 }
 
 
-int main(int argc, char **argp) {
+int main() {
 	Engine engine;
-	engine.init(argc, argp);
+	engine.init();
 	engine.run();
 	return 0;
 }

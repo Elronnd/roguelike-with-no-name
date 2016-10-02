@@ -40,7 +40,7 @@ enum CMD {
 
 class Engine {
 	public:
-	void init(int, char **);
+	void init();
 	void run();
 	void handlemove(CMD);
 	void setinterface(char='d');
