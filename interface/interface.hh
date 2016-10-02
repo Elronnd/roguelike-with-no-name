@@ -13,7 +13,7 @@ class BaseDisplayer {
 /*	virtual void animation_line(short, short, short, short,RGBColour) = 0;
 	virtual void animation_gradientline(short, short, short, short, RGBColour, RGBColour) = 0;*/
 	virtual char readchar() = 0;
-	virtual void start(int *, char **, str="") = 0;
+	virtual void start() = 0;
 	virtual void end() = 0;
 };
 class JSONDisplayer: public BaseDisplayer {
@@ -25,7 +25,7 @@ class JSONDisplayer: public BaseDisplayer {
 /*	void animation_line(short, short, short, short,RGBColour) override;
 	void animation_gradientline(short, short, short, short, RGBColour, RGBColour) override;*/
 	char readchar() override;
-	void start(int *, char **, str="") override;
+	void start() override;
 	void end() override;
 };
 
@@ -36,6 +36,6 @@ class DebugDisplayer: public BaseDisplayer {
 /*	void animation_line(short, short, short, short,RGBColour) override;
 	void animation_gradientline(short, short, short, short, RGBColour, RGBColour) override;*/
 	char readchar() override;
-	void start(int *, char **, str="") override;
+	void start() override;
 	void end() override;
 };
