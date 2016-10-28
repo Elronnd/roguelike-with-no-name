@@ -14,6 +14,10 @@ matrix:
        compiler: gcc-4.9
        script: "cd build; cmake . -DCMAKE_CXX_COMPILER=g++-4.9; make"
        osx_image: xcode8.0
+     - os: osx
+       compiler: clang
+       script: "cd build; cmake . -DCMAKE_CXX_COMPILER=clang++; make"
+       osx_image: xcode8.0
      - os: linux
        addons:
          dist: zesty
