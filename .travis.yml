@@ -1,5 +1,5 @@
 language: c++
-#sudo: required
+sudo: required
 
 notifications:
   irc:
@@ -10,6 +10,9 @@ skip_join: true
 
 matrix:
   include:
+     - os: osx
+       addons:
+         script: "cd build; cmake .; make"
      - os: linux
        addons:
          dist: yakkety
@@ -19,9 +22,6 @@ matrix:
            packages:
              - g++-6
        script: "cd build; cmake . -DCMAKE_CXX_COMPILER=g++-6; make"
-     - os: osx
-       addons:
-         script: "cd build; cmake .; make"
 #    - compiler: clang
 #      addons:
 #        apt:
