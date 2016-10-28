@@ -14,7 +14,7 @@ matrix:
        script: "cd build; cmake .; make"
      - os: linux
        addons:
-         dist: yakkety
+         dist: zesty
          apt:
            sources:
              - ubuntu-toolchain-r-test
