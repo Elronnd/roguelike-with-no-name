@@ -1,12 +1,12 @@
 language: c++
-sudo: required
+#sudo: required
 
 notifications:
   irc:
     channels:
       - "irc.freenode.net#em.slashem.me"
 skip_join: true
-compiler: gcc
+#compiler: gcc
 
 matrix:
   include:
