@@ -19,6 +19,7 @@ matrix:
        script: "cd build; cmake . -DCMAKE_CXX_COMPILER=clang++; make"
        osx_image: xcode8.0
      - os: linux
+       compiler: gcc
        addons:
          dist: zesty
          apt:
@@ -28,6 +29,7 @@ matrix:
              - g++-6
        script: "cd build; cmake . -DCMAKE_CXX_COMPILER=g++-6; make"
      - os: linux
+       compiler: clang
        addons:
          dist: zesty
          apt:
@@ -37,13 +39,3 @@ matrix:
            packages:
              - clang-3.8
        script: "cd build; cmake . -DCMAKE_CXX_COMPILER=clang++-3.8; make"
-#    - compiler: clang
-#      addons:
-#        apt:
-#          sources:
-#            - ubuntu-toolchain-r-test
-#            - llvm-toolchain-precise-3.8
-#          packages:
-#            - clang-3.8
-#            - libc++-dev
-#      script: "cd build; cmake . -DCMAKE_CXX_COMPILER=clang++-3.8 -DCMAKE_CXX_FLAGS='-I../game/include -I../share/include -I../interface -std=c++14 -stdlib=libc++'; make"
