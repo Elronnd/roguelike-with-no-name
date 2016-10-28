@@ -20,6 +20,8 @@ matrix:
   include:
      - os: linux
      - os: osx
+       addons:
+         script: "cd build; cmake .; make"
 #    - compiler: clang
 #      addons:
 #        apt:
