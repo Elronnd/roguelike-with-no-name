@@ -11,7 +11,9 @@ notifications:
 matrix:
   include:
      - os: osx
-       script: "cd build; cmake .; make"
+       compiler: gcc-5.3
+       script: "cd build; cmake . -DCMAKE_CXX_COMPILER=g++-5.3; make"
+       osx_image: xcode8.0
      - os: linux
        addons:
          dist: zesty
