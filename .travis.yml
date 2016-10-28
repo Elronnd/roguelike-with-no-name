@@ -11,8 +11,7 @@ skip_join: true
 matrix:
   include:
      - os: osx
-       addons:
-         script: "cd build; cmake .; make"
+       script: "cd build; cmake .; make"
      - os: linux
        addons:
          dist: yakkety
