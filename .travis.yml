@@ -1,18 +1,18 @@
 language: c++
 sudo: required
-dist: yakkety
 
 notifications:
   irc:
     channels:
       - "irc.freenode.net#em.slashem.me"
-compiler: gcc
 skip_join: true
+compiler: gcc
 
 matrix:
   include:
      - os: linux
        addons:
+         dist: yakkety
          apt:
            sources:
              - ubuntu-toolchain-r-test
