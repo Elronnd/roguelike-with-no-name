@@ -6,18 +6,18 @@ notifications:
   irc:
     channels:
       - "irc.freenode.net#em.slashem.me"
-    skip_join: true
+compiler: gcc
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-6
+script: "cd build; cmake . -DCMAKE_CXX_COMPILER=g++-6; make"
+skip_join: true
 
 matrix:
   include:
-    - compiler: gcc
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - g++-6
-      script: "cd build; cmake . -DCMAKE_CXX_COMPILER=g++-6; make"
      - os: linux
      - os: osx
 #    - compiler: clang
