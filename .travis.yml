@@ -38,4 +38,5 @@ matrix:
            packages:
              - clang-3.8
              - llvm-3.8-dev
-       script: "cd build; cmake . -DCMAKE_C_COMPILER=clang-3.8 -DCMAKE_CXX_COMPILER=clang++-3.8; make"
+             - libc++-dev
+       script: "cd build; cmake . -DCMAKE_C_COMPILER=clang-3.8 -DCMAKE_CXX_COMPILER=clang++-3.8 -Dcxxflags=\"-stdlib=libc++\"; make"
