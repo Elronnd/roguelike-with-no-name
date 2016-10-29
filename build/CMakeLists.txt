@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 2.6)
 project (roguelike)
-set (CMAKE_CXX_FLAGS  "-I../game/include -I../share/include -I../interface -O2")
+set (CMAKE_CXX_FLAGS  "-I../game/include -I../share/include -I../interface -std=c++14 -O2")
 
 option (allwarns "show_all_warnings" ON)
 option (debug "debug" ON)
