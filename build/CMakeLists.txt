@@ -1,6 +1,27 @@
 cmake_minimum_required (VERSION 2.6)
 project (roguelike)
-SET (CMAKE_CXX_FLAGS  "-I../game/include -I../share/include -I../interface -I../interface/libuncursed/fiqshacks -I../interface/libuncursed/include -std=c++14 -Wall -Wextra -Wpedantic -Werror" )
+set (CMAKE_CXX_FLAGS  "-I../game/include -I../share/include -I../interface -O2")
+
+option (allwarns "show_all_warnings" ON)
+option (debug "debug" ON)
+option (gprof "gprof-syms" OFF) # not suppported by clang, mostly unnecessary
+option (werror "error-on-warn" ON)
+option (cxxflags "additional_cxx_flags" "")
+
+if (allwarns)
+	set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic")
+endif()
+if (debug)
+	set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g")
+endif()
+if (gprof)
+	set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pg")
+endif()
+if (werror)
+	set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror")
+endif()
+
+set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${cxxflags}")
 
 add_library (interface STATIC ../interface/debug.cc ../interface/json.cc)
 add_executable (main ../game/src/main.cc ../game/src/util.cc ../game/src/move.cc)
