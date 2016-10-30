@@ -13,7 +13,7 @@ matrix:
      - os: osx
        before_install:
          - brew install gcc6
-       compiler: gcc-4.9
+       compiler: gcc-6
        script: "cd build; cmake . -DCMAKE_C_COMPILER=gcc-6 -DCMAKE_CXX_COMPILER=g++-6; make"
        osx_image: xcode8.0
      - os: osx
