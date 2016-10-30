@@ -50,5 +50,5 @@ class Engine {
 	Being u;
 	vector<CMD> vikeys;
 	void makecmds();
-	vector<int> listofvikeys {'h', 'j', 'k', 'l', 'y', 'u', 'b', 'n', '.', ',', 'q'};
+	vector<char> listofvikeys {'h', 'j', 'k', 'l', 'y', 'u', 'b', 'n', '.', ',', 'q'};
 };

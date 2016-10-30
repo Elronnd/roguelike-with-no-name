@@ -15,7 +15,8 @@ namespace { std::random_device rnjesus; }
 	unsigned char r, g, b;
 };*/
 
-inline bool isamemberof(int item, list set) {
+template<typename T>
+inline bool isamemberof(T item, vector<T> set) {
 	return std::find(std::begin(set), std::end(set), item) != std::end(set);
 }
 
