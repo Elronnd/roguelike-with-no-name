@@ -7,6 +7,7 @@
 /* mapping from tile to unicode characters */
 /* Maybe some other stuff.  We"ll see. */
 
+namespace tiles {
 inline strlist tileset() {
 	static strlist tileslist;
 	tileslist.resize(256);
@@ -221,3 +222,4 @@ inline wstrlist wtileset() {
 	tileslist[slash_back] = L"╲";
 	return tileslist;
 }
+} // namespace tiles

@@ -1,10 +1,14 @@
 #include <string>
 #include "stddef.hh"
 #include "stdlib.hh"
+#include <SDL2/SDL.h>
 
 /* API description for the displayer */
 
 #pragma once
+
+#define SDL_SetRenderDrawColour SDL_SetRenderDrawColor
+
 class BaseDisplayer {
 	public:
 	virtual ~BaseDisplayer() = default;
@@ -34,6 +38,27 @@ class DebugDisplayer: public BaseDisplayer {
 	void refresh(GameMap&) override;
 	void animation_sparkle(short, short) override;
 /*	void animation_line(short, short, short, short,RGBColour) override;
+	void animation_gradientline(short, short, short, short, RGBColour, RGBColour) override;*/
+	char readchar() override;
+	void start() override;
+	void end() override;
+};
+
+class SDLDisplayer: public BaseDisplayer {
+	private:
+	void loadfont(const char *filename, int height=100);
+	SDL_Renderer *renderer;
+	SDL_Texture *surface;
+	SDL_Window *window;
+	SDL_Colour sdlcolour(RGBColour);
+	vector<SDL_Texture*> tileset;
+	void draw_char(str, RGBColour, RGBColour, int, int);
+	short x_pos, y_pos;
+	int width, height;
+	public:
+	void refresh(GameMap&) override;
+	void animation_sparkle(short, short) override;
+/*	void animation_line(short, short, short, short, RGBColour) override;
 	void animation_gradientline(short, short, short, short, RGBColour, RGBColour) override;*/
 	char readchar() override;
 	void start() override;

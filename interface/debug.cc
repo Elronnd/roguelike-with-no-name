@@ -9,7 +9,7 @@
 void DebugDisplayer::refresh(GameMap& map) {
 	for (ColouredGlyphString line: map.mapspace) {
 		for (Glyph glyph: line.somestr)
-			printf("%s", tileset()[glyph].c_str());
+			printf("%s", tiles::tileset()[glyph].c_str());
 		printf("\n");
 	}
 	printf("hp: %d(%d), mp: %d(%d)\n", map.hp, map.maxhp, map.mp, map.maxmp);

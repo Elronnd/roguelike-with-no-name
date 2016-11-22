@@ -8,8 +8,8 @@ void Engine::setinterface(char type) {
 		case 'd':
 		case 'D': this->display = std::make_unique<DebugDisplayer>();
 			  break;
-		case 'j':
-		case 'J': this->display = std::make_unique<JSONDisplayer>();
+		case 's':
+		case 'S': this->display = std::make_unique<SDLDisplayer>();
 			  break;
 		default: this->display = std::make_unique<DebugDisplayer>();
 	}

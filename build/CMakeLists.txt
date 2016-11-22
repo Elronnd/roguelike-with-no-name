@@ -24,6 +24,6 @@ if (cxxflags)
 	set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${cxxflags}")
 endif()
 
-add_library (interface STATIC ../interface/debug.cc ../interface/json.cc)
+add_library (interface STATIC ../interface/debug.cc ../interface/sdl-ttf.cc)
 add_executable (main ../game/src/main.cc ../game/src/util.cc ../game/src/move.cc)
 target_link_libraries (main interface)

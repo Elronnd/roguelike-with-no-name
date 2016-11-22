@@ -20,41 +20,6 @@ inline bool isamemberof(T item, vector<T> set) {
 	return std::find(std::begin(set), std::end(set), item) != std::end(set);
 }
 
-#if 0
-bool isvalidcolour(str hexcolour) {
-	std::cout << "uh huh";
-	if (!((6 <= hexcolour.length()) &&
-	      (hexcolour.length() <= 7)))
-		return false;
-	std::cout << "first test passed";
-
-	if ((hexcolour.length() == 7) && (hexcolour[0] != '#'))
-		return false;
-	else if (hexcolour.length() == 7)
-		hexcolour.erase(0, 1);
-	std::cout << "second test passed";
-
-	/* We now for sure have a six-character string that doesn't start with
-	 * "#".  Now for the fun part.
-	 */
-
-	for (char nam: hexcolour) {
-//		if (!(('0' <= nam <= '9') || ('a' <= nam <= 'f') || ('A' <= nam <= 'F')))
-		if (('0' <= nam) && (nam <= '9'))
-/*		if (!( (('0' <= nam) && (nam <= '9'))
-		   ||  (('a' <= nam) && (nam <= 'f'))
-		   ||  (('A' <= nam) && (nam <= 'F'))))*/
-			std::cout << "looping over " << nam;
-			std::cout << "a number\n";
-			return false;
-	}
-
-	std::cout << "third test passed.  It's true.";
-
-	return true;
-}
-#endif
-
 inline bool isvalidcolour(str hexcolour) {
 	static std::regex validator = std::regex("#?[0-1a-fA-F{6}");
 	return std::regex_match(hexcolour, validator);
@@ -92,7 +57,7 @@ inline char onehexrgb(unsigned char tchar) {
 
 
 inline RGBColour hex2rgb(str hexcolour) {
-	RGBColour RGB(0, 0, 0);
+	RGBColour RGB;
 
 	if (hexcolour.length() == 7)
 		hexcolour.erase(0, 1);
