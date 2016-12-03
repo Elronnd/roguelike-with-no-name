@@ -5,8 +5,9 @@
 #include <memory>
 
 void Engine::init() {
-	// default is 'u' for "uncursed"
-	// you can also use 'j' for json or 'd' for debug.  case-insensitive
+	int i=0;
+	RGBColour white(255, 255, 255);
+	RGBColour black(0, 0, 0);
 	setinterface();
 
 	makecmds();
@@ -15,7 +16,11 @@ void Engine::init() {
 	for (ColouredGlyphString line: this->map.mapspace) {
 		for (Glyph& glyph: line.somestr) {
 			glyph = middot;
+			line.fgcolourlist[i] = white;
+			line.bgcolourlist[i] = black;
+			i++;
 		}
+		i = 0;
 	}
 
 	u.hp = u.maxhp = rnd(15, 20);

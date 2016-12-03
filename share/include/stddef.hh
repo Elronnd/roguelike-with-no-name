@@ -17,7 +17,7 @@ using strlist = vector<str>;
 using wstrlist = vector<wstr>;
 
 struct RGBColour {
-        RGBColour(int red=0, int green=0, int blue=0) { r=red; g=green; b=blue; }
+        RGBColour(int red=255, int green=255, int blue=255) { r=red; g=green; b=blue; }
         unsigned char r, g, b;
 };
 
@@ -429,12 +429,14 @@ const vector<Glyph> all_glyphs {
 
 struct ColouredString {
 	str somestr;
-	vector<RGBColour> colourlist;
+	vector<RGBColour> fgcolourlist;
+	vector<RGBColour> bgcolourlist;
 };
 
 struct ColouredGlyphString {
 	vector<Glyph> somestr;
-	vector<RGBColour> colourlist;
+	vector<RGBColour> fgcolourlist;
+	vector<RGBColour> bgcolourlist;
 };
 
 struct GameMap {
@@ -443,7 +445,8 @@ struct GameMap {
 		mapspace.resize(MAX_ROWS);
 		for (ColouredGlyphString& i: mapspace) {
 			i.somestr.resize(MAX_COLS);
-			i.colourlist.resize(MAX_COLS);
+			i.fgcolourlist.resize(MAX_COLS);
+			i.bgcolourlist.resize(MAX_COLS);
 		}
 	}
 

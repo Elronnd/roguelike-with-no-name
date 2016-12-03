@@ -48,13 +48,12 @@ class SDLDisplayer: public BaseDisplayer {
 	private:
 	void loadfont(const char *filename, int height=100);
 	SDL_Renderer *renderer;
-	SDL_Texture *surface;
 	SDL_Window *window;
 	SDL_Colour sdlcolour(RGBColour);
 	vector<SDL_Texture*> tileset;
-	void draw_char(str, RGBColour, RGBColour, int, int);
-	short x_pos, y_pos;
+	void draw_char(Glyph, RGBColour, RGBColour, int, int);
 	int width, height;
+	int tile_width = 10, tile_height = 2*tile_width;
 	public:
 	void refresh(GameMap&) override;
 	void animation_sparkle(short, short) override;
