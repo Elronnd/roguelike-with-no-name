@@ -18,6 +18,7 @@ using wstrlist = vector<wstr>;
 
 struct RGBColour {
         RGBColour(int red=255, int green=255, int blue=255) { r=red; g=green; b=blue; }
+	bool operator==(const RGBColour &a) { return ((this->r == a.r) && (this->g == a.g) && (this->b == a.b)); }
         unsigned char r, g, b;
 };
 

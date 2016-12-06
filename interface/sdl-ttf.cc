@@ -93,7 +93,6 @@ void SDLDisplayer::draw_char(Glyph glyph, RGBColour fg, RGBColour bg, int xoffse
 	// Actually draw the background
 	SDL_RenderFillRect(this->renderer, &tile);
 
-	printf("Tile# is %d\n", glyph);
 	if ((character = this->tileset[glyph]) == nullptr) {
 		printf("SDLDisplayer::draw_char() was passed a nonexistent tile with ID# %d.", glyph);
 		this->end();
@@ -118,7 +117,6 @@ void SDLDisplayer::refresh(GameMap& map) {
 		for (Glyph glyph: line.somestr) {
 //			draw_char(glyph, line.fgcolourlist[index], line.bgcolourlist[index], xoffset, yoffset);
 			draw_char(glyph, white, black, xoffset, yoffset);
-			printf("Drawing glyph %d\n", glyph);
 			xoffset++;
 			index++;
 		}
@@ -131,7 +129,6 @@ void SDLDisplayer::refresh(GameMap& map) {
 
 char SDLDisplayer::readchar() {
 	char c = getchar();
-	printf("Read character %c\n", c);
 	return c;
 }
 
