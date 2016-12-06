@@ -52,7 +52,6 @@ class SDLDisplayer: public BaseDisplayer {
 	SDL_Colour sdlcolour(RGBColour);
 	vector<SDL_Texture*> tileset;
 	void draw_char(Glyph, RGBColour, RGBColour, int, int);
-	int width, height;
 	int tile_width = 15, tile_height = 2*tile_width;
 	public:
 	void refresh(GameMap&) override;

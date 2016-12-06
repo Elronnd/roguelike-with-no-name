@@ -26,4 +26,4 @@ endif()
 
 add_library (interface STATIC ../interface/debug.cc ../interface/sdl-ttf.cc)
 add_executable (main ../game/src/main.cc ../game/src/util.cc ../game/src/move.cc)
-target_link_libraries (main interface)
+target_link_libraries (main interface SDL2 SDL2_ttf)
