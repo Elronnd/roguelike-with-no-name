@@ -26,7 +26,7 @@ matrix:
        before_install:
          - sudo -E apt-add-repository -y "ppa:ubuntu-toolchain-r/test"
          - sudo -E apt-get -yq update &>> ~/apt-get-update.log
-         - sudo -E apt-get -yq --no-install-suggests --no-install-recommends --force-yes install g++-6 libsdl2-2.0 libsdl2-dev
+         - sudo -E apt-get -yq --no-install-suggests --no-install-recommends --force-yes install g++-6 libsdl2-2.0 libsdl2-dev libsdl-ttf2-2.0 libsdl-ttf2.0-dev
        compiler: gcc
        dist: zesty
 #       addons:
@@ -40,7 +40,7 @@ matrix:
        before_install:
          - curl -sSL "http://llvm.org/apt/llvm-snapshot.gpg.key" | sudo -E apt-key add -
          - echo "deb http://llvm.org/apt/precise/ llvm-toolchain-precise-3.8 main" | sudo tee -a /etc/apt/sources.list > /dev/null
-         - sudo -E apt-get -yq --no-install-suggests --no-install-recommends --force-yes install clang-3.8 llvm-3.8-dev libc++-dev libsdl2-2.0 libsdl2-dev
+         - sudo -E apt-get -yq --no-install-suggests --no-install-recommends --force-yes install clang-3.8 llvm-3.8-dev libc++-dev libsdl2-2.0 libsdl2-dev libsdl-ttf2-2.0 libsdl-ttf2.0-dev
        compiler: clang
        dist: zesty
 #       addons:
