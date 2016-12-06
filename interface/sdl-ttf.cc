@@ -115,8 +115,7 @@ void SDLDisplayer::refresh(GameMap& map) {
 	xoffset = yoffset = index = 0;
 	for (ColouredGlyphString line: map.mapspace) {
 		for (Glyph glyph: line.somestr) {
-//			draw_char(glyph, line.fgcolourlist[index], line.bgcolourlist[index], xoffset, yoffset);
-			draw_char(glyph, white, black, xoffset, yoffset);
+			draw_char(glyph, line.fgcolourlist[index], line.bgcolourlist[index], xoffset, yoffset);
 			xoffset++;
 			index++;
 		}

@@ -2,18 +2,17 @@
 #include "stddef.hh"
 #include "stdlib.hh"
 #include "interface.hh"
+#include "colour.hh"
 #include <memory>
 
 void Engine::init() {
 	int i=0;
-	RGBColour white(255, 255, 255);
-	RGBColour black(0, 0, 0);
 	setinterface();
 
 	makecmds();
 
 	// initialize with middots, no colours
-	for (ColouredGlyphString line: this->map.mapspace) {
+	for (ColouredGlyphString& line: this->map.mapspace) {
 		for (Glyph& glyph: line.somestr) {
 			glyph = middot;
 			line.fgcolourlist[i] = white;
