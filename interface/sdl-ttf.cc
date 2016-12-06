@@ -110,11 +110,15 @@ void SDLDisplayer::draw_char(Glyph glyph, RGBColour fg, RGBColour bg, int xoffse
 
 
 void SDLDisplayer::refresh(GameMap& map) {
+	RGBColour white(255, 5, 255);
+	RGBColour black(0, 0, 0);
 	int xoffset, yoffset, index; //in the lists of glyphs and colours, since we have to store them seperately
 	xoffset = yoffset = index = 0;
 	for (ColouredGlyphString line: map.mapspace) {
 		for (Glyph glyph: line.somestr) {
-			draw_char(glyph, line.fgcolourlist[index], line.bgcolourlist[index], xoffset, yoffset);
+//			draw_char(glyph, line.fgcolourlist[index], line.bgcolourlist[index], xoffset, yoffset);
+			draw_char(glyph, white, black, xoffset, yoffset);
+			printf("Drawing glyph %d\n", glyph);
 			xoffset++;
 			index++;
 		}

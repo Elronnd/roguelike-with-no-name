@@ -105,5 +105,7 @@ int main() {
 //	SDL_GetWindowSize(window, &w, &h);
 //	printf("%dx%d\n", w, h);
 	sleep(2);
+	ourthingy.drawchar(0x2502);
+	sleep(2);
 	return 0;
 }
