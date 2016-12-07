@@ -5,6 +5,7 @@
 #include "colour.hh"
 #include <memory>
 
+
 void Engine::init() {
 	int i=0;
 	setinterface();
@@ -15,8 +16,8 @@ void Engine::init() {
 	for (ColouredGlyphString& line: this->map.mapspace) {
 		for (Glyph& glyph: line.somestr) {
 			glyph = middot;
-			line.fgcolourlist[i] = white;
-			line.bgcolourlist[i] = black;
+			line.fgcolourlist[i] = rndclr();
+			line.bgcolourlist[i] = oppositeclr(line.fgcolourlist[i]);
 			i++;
 		}
 		i = 0;

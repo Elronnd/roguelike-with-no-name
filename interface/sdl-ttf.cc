@@ -27,7 +27,7 @@ void SDLDisplayer::start() {
 	// SDL_WINDOW_FULLSCREEN actually changes the video mode
 	this->window = SDL_CreateWindow("", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 0, 0, SDL_WINDOW_FULLSCREEN_DESKTOP);
 	this->renderer = SDL_CreateRenderer(this->window, -1, SDL_RENDERER_ACCELERATED);
-	this->loadfont("dejavu_sans_mono.ttf", 10);
+	this->loadfont("dejavu_sans_mono.ttf", 200);
 }
 
 

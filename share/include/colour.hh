@@ -14,3 +14,12 @@ colour(magenta, 255, 0, 255)
 colour(yellow, 255, 255, 0)
 
 #undef colour
+
+
+RGBColour rndclr() {
+	return RGBColour(rn2(256), rn2(256), rn2(256));
+}
+
+RGBColour oppositeclr(RGBColour colour) {
+	return RGBColour(255-colour.r, 255-colour.g, 255-colour.b);
+}
