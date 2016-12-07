@@ -1,9 +1,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
-//#include <cstdlib>
 #include <cstdio>
-//#include <unistd.h>
-//#include <cstdint>
+#include <unistd.h> // sleep()
 #include "interface.hh"
 #include "tile.hh"
 
@@ -127,8 +125,38 @@ void SDLDisplayer::refresh(GameMap& map) {
 
 
 char SDLDisplayer::readchar() {
-	char c = getchar();
-	return c;
+	SDL_Event e;
+	SDL_Keycode k;
+	uint16_t mod;
+	(void) mod; // so the compiler doesn't complain.  TODO implement this
+		    // properly so the compiler doesn't have to complain.
+
+	k = SDLK_r;
+	if (SDL_WaitEvent(&e) == 1) {
+		if (e.type == SDL_KEYDOWN) {
+			k = e.key.keysym.sym;
+			mod = e.key.keysym.mod;
+		}
+	} else {
+		printf("Unable to properly read SDL event?  SDL says \"%s\"\n", SDL_GetError());
+	}
+
+	
+
+	switch(k) {
+		case SDLK_h:
+			return 'h';
+		case SDLK_l:
+			return 'l';
+		case SDLK_j:
+			return 'j';
+		case SDLK_k:
+			return 'k';
+		case SDLK_q:
+			return 'q';
+		default:
+			return '?';
+	}
 }
 
 void SDLDisplayer::animation_sparkle(short x, short y) {
