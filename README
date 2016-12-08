@@ -1,1 +1,9 @@
 Game logic goes in game/.  User Interfaces go in interfaces/.  Shared headers (that is, shared between the interfaces and the engine) go in share/.  Any other files or directories are a figment of your imagination.
+
+Credits:
+
+ * JSON for Modern C++, by Niels Lohmann, at https://github.com/nlohmann/json.  Licensed under the MIT license, included under this source as LICENSE.MIT.
+
+ * libSDL, by Sam Lantinga, at https://www.libsdl.org/.  Licensed under the zlib license, included under this source as LICENSE.zlib.  NOT BUNDLED (except in some binary distributions).
+
+ ALL OTHER PORTIONS OF THIS CODEBASE ARE LICENSED UNDER THE GPLv3 (INCLUDED UNDER THIS SOURCE AS LICENSE) AND MAY NOT UNDER ANY CIRCUMSTANCES BE REDISTRIBUTED UNDER THE TERMS OF ANY OTHER LICENSE INCLUDING, BUT NOT LIMITED TO, THE MIT AND ZLIB LICENSES NOTED ABOVE.
