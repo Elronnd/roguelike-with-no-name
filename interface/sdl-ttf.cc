@@ -123,40 +123,35 @@ void SDLDisplayer::refresh(GameMap& map) {
 	SDL_RenderPresent(this->renderer);
 }
 
+char togglecase(char chr) {
+	if (('a' <= chr) && (chr <= 'z')) {
+		return chr-32;
+	} else if (('A' <= chr) && (chr <= 'Z')) {
+		return chr+32;
+	} else {
+		return chr;
+	}
+}
+
 
 char SDLDisplayer::readchar() {
 	SDL_Event e;
-	SDL_Keycode k;
-	uint16_t mod;
-	(void) mod; // so the compiler doesn't complain.  TODO implement this
-		    // properly so the compiler doesn't have to complain.
+	unsigned char chr = '\0';
 
-	k = SDLK_r;
-	if (SDL_WaitEvent(&e) == 1) {
-		if (e.type == SDL_KEYDOWN) {
-			k = e.key.keysym.sym;
-			mod = e.key.keysym.mod;
+	SDL_StartTextInput();
+	while (true) {
+		if (SDL_WaitEvent(&e) == 1) {
+			if (e.type == SDL_TEXTINPUT) {
+				chr = e.text.text[0];
+				break;
+			}
+		} else {
+			printf("Unable to properly read SDL event?  SDL says \"%s\"\n", SDL_GetError());
+			exit(2);
 		}
-	} else {
-		printf("Unable to properly read SDL event?  SDL says \"%s\"\n", SDL_GetError());
 	}
 
-	
-
-	switch(k) {
-		case SDLK_h:
-			return 'h';
-		case SDLK_l:
-			return 'l';
-		case SDLK_j:
-			return 'j';
-		case SDLK_k:
-			return 'k';
-		case SDLK_q:
-			return 'q';
-		default:
-			return '?';
-	}
+	return chr;
 }
 
 void SDLDisplayer::animation_sparkle(short x, short y) {
