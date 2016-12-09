@@ -16,7 +16,7 @@ class BaseDisplayer {
 	virtual void animation_sparkle(short, short) = 0;
 /*	virtual void animation_line(short, short, short, short,RGBColour) = 0;
 	virtual void animation_gradientline(short, short, short, short, RGBColour, RGBColour) = 0;*/
-	virtual char readchar() = 0;
+	virtual str readchar() = 0;
 	virtual void start() = 0;
 	virtual void end() = 0;
 };
@@ -28,7 +28,7 @@ class JSONDisplayer: public BaseDisplayer {
 	void animation_sparkle(short, short) override;
 /*	void animation_line(short, short, short, short,RGBColour) override;
 	void animation_gradientline(short, short, short, short, RGBColour, RGBColour) override;*/
-	char readchar() override;
+	str readchar() override;
 	void start() override;
 	void end() override;
 };
@@ -39,7 +39,7 @@ class DebugDisplayer: public BaseDisplayer {
 	void animation_sparkle(short, short) override;
 /*	void animation_line(short, short, short, short,RGBColour) override;
 	void animation_gradientline(short, short, short, short, RGBColour, RGBColour) override;*/
-	char readchar() override;
+	str readchar() override;
 	void start() override;
 	void end() override;
 };
@@ -58,7 +58,7 @@ class SDLDisplayer: public BaseDisplayer {
 	void animation_sparkle(short, short) override;
 /*	void animation_line(short, short, short, short, RGBColour) override;
 	void animation_gradientline(short, short, short, short, RGBColour, RGBColour) override;*/
-	char readchar() override;
+	str readchar() override;
 	void start() override;
 	void end() override;
 };

@@ -20,16 +20,15 @@ void Engine::refresh() {
 }
 
 void Engine::makecmds() {
-	this->vikeys.resize(255);
-	this->vikeys['k'] = cmd_north;
-	this->vikeys['j'] = cmd_south;
-	this->vikeys['l'] = cmd_east;
-	this->vikeys['h'] = cmd_west;
-	this->vikeys['y'] = cmd_northwest;
-	this->vikeys['b'] = cmd_southwest;
-	this->vikeys['u'] = cmd_northeast;
-	this->vikeys['n'] = cmd_southeast;
-	this->vikeys['.'] = cmd_wait;
-	this->vikeys[','] = cmd_pickup;
-	this->vikeys['q'] = cmd_quit;
+	this->vikeys["k"] = cmd_north;
+	this->vikeys["j"] = cmd_south;
+	this->vikeys["l"] = cmd_east;
+	this->vikeys["h"] = cmd_west;
+	this->vikeys["y"] = cmd_northwest;
+	this->vikeys["b"] = cmd_southwest;
+	this->vikeys["u"] = cmd_northeast;
+	this->vikeys["n"] = cmd_southeast;
+	this->vikeys["."] = cmd_wait;
+	this->vikeys[","] = cmd_pickup;
+	this->vikeys["q"] = cmd_quit;
 }

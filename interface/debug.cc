@@ -20,8 +20,8 @@ void DebugDisplayer::animation_sparkle(short x, short y) {
 	printf("Sparkle animation at (%d,%d)\n", x, y);
 }
 
-char DebugDisplayer::readchar() {
-	return getchar();
+str DebugDisplayer::readchar() {
+	return std::to_string(getchar());
 }
 
 void DebugDisplayer::start() {}

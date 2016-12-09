@@ -1,4 +1,5 @@
 #include <string>
+#include <map>
 #include "stddef.hh"
 #include "interface.hh"
 #pragma once
@@ -48,7 +49,7 @@ class Engine {
 	std::unique_ptr<BaseDisplayer> display;
 	GameMap map;
 	Being u;
-	vector<CMD> vikeys;
+	std::map<str, CMD> vikeys;
 	void makecmds();
-	vector<char> listofvikeys {'h', 'j', 'k', 'l', 'y', 'u', 'b', 'n', '.', ',', 'q'};
+	vector<str> listofvikeys {"h", "j", "k", "l", "y", "u", "b", "n", ".", ",", "q"};
 };

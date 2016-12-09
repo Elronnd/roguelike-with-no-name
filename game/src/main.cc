@@ -41,9 +41,10 @@ void Engine::init() {
 }
 
 void Engine::run() {
-	char inchar;
+	str inchar;
 
-	while ((inchar = display->readchar())) {
+	while (true) {
+		inchar = display->readchar();
 		if (isamemberof(inchar, listofvikeys)) {
 			if (vikeys[inchar] == cmd_quit)
 				break;

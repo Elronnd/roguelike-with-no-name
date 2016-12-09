@@ -134,15 +134,15 @@ char togglecase(char chr) {
 }
 
 
-char SDLDisplayer::readchar() {
+str SDLDisplayer::readchar() {
 	SDL_Event e;
-	unsigned char chr = '\0';
+	str chr;
 
 	SDL_StartTextInput();
 	while (true) {
 		if (SDL_WaitEvent(&e) == 1) {
 			if (e.type == SDL_TEXTINPUT) {
-				chr = e.text.text[0];
+				chr = e.text.text;
 				break;
 			}
 		} else {
